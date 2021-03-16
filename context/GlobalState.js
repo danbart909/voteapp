@@ -3,15 +3,15 @@ import Context from './Context.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'react-native-axios'
 
-let baseTimer = 3
+let baseTimer = 2
 
 export default class GlobalState extends Component {
   constructor(props) {
     super(props)
     this.state = {
       // address: '1510 5th St Limon CO 80828',
-      // address: '701 N Clinton St Litchfield, IL 62056',
-      // address: '10111 Beacon Ave S Seattle, WA 98178',
+      // address: '125 Churchill Ln, Lincoln, IL 62656',
+      // address: '170 Goodwin Rd, Thorp, WA 98946',
       address: '1820 Tree Top Way Marietta GA 30062',
       // address: '',
       gov: {
@@ -63,7 +63,7 @@ export default class GlobalState extends Component {
 
   countDown = (i) => {
     let seconds = this.state.vote[i].timer - 1;
-    console.log(i, seconds)
+    // console.log(i, seconds)
     if (seconds != 0) {
       this.setState({ vote: { ...this.state.vote, [i]: { ...this.state.vote[i], timer: seconds } } })
     } else if (seconds == 0) { 

@@ -23,7 +23,7 @@ export default class Reps extends Component {
         emails: []
       },
       name: '',
-      offices: '',
+      office: '',
       vote: {
         0: { name: '', score: 0 },
         1: { name: '', score: 0 },
@@ -45,11 +45,11 @@ export default class Reps extends Component {
     this.context.setTimer(name, rating, i)
   }
 
-  onModal = (modalData, offices) => {
+  onModal = (modalData, office) => {
     this.setState({
       modal: true,
       data: modalData,
-      offices: offices
+      office: office
     })
   }
 
@@ -57,7 +57,7 @@ export default class Reps extends Component {
     this.setState({ modal: false })
     this.closeModalDelay = setTimeout(() => {
       this.offModalAfterTimeout()
-    }, 400)
+    }, 180)
   }
 
   offModalAfterTimeout = () => {
@@ -71,16 +71,16 @@ export default class Reps extends Component {
         urls: [],
         emails: []
       },
-      offices: ''
+      office: ''
     })
   }
 
-  onModal2 = (modalData, offices, i) => {
+  onModal2 = (modalData, office, i) => {
     this.setState({
       modal2: true,
       data: modalData,
       name: modalData.name.replace(/[ ,.]/g, ''),
-      offices: offices.replace(/[ ,.]/g, ''),
+      office: office.replace(/[ ,.]/g, ''),
       modal2id: i,
     })
   }
@@ -89,7 +89,7 @@ export default class Reps extends Component {
     this.setState({ modal2: false })
     this.closeModalDelay2 = setTimeout(() => {
       this.offModalAfterTimeout2()
-    }, 400)
+    }, 180)
   }
 
   offModalAfterTimeout2 = () => {
@@ -104,16 +104,16 @@ export default class Reps extends Component {
         urls: [],
         emails: []
       },
-      offices: ''
+      office: ''
     })
   }
 
-  voteOrRating = (modalData, offices, i) => {
+  voteOrRating = (modalData, office, i) => {
     if (this.context.vote[i].score === 0) {
       return (
         <TouchableOpacity
           style={styles.rVote}
-          onPress={() => this.onModal2(modalData, offices, i)}
+          onPress={() => this.onModal2(modalData, office, i)}
         >
           <Text style={styles.rVoteTx}>
             Ready to Vote!

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Modal, ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native'
+import axios from 'react-native-axios'
+import Context from '../context/Context.js'
 import styles from '../styles.js'
 
 export default class Card extends Component {
@@ -10,14 +12,121 @@ export default class Card extends Component {
     }
   }
 
+  static contextType = Context
+
   vote = () => {
-    if (this.state.rating === 0) {
+    let rating = this.state.rating
+    if (rating === 0) {
       alert('please pick a rating')
     } else {
-      console.log(`ranking of ${this.state.rating} submitted for ${this.props.state.name}`)
-      // console.log(this.state.rating, this.props.state)
+      let { name, office } = this.props.state
+      let district1 = parseInt(this.context.gov.districts[1].replace( /\D+/g, '' ))
+      let district2 = parseInt(this.context.gov.districts[2].replace( /\D+/g, '' ))
+      let district3 = parseInt(this.context.gov.districts[3].replace( /\D+/g, '' ))
+      let stateABR = this.context.gov.offices[5].slice(0, 2).trim()
+      let officeGov = office.slice(0, 8)
+      let officeSenRep = office.slice(2)
+
       this.offModal()
-      this.props.setVote(this.state.rating)
+      this.props.setVote(rating)
+
+      if (office === 'PresidentoftheUnitedStates') {
+        axios
+        .post('http://localhost:8000/post/pres', {
+          name: name,
+          state: stateABR,
+          rating: rating,
+          district1: district1,
+          district2: district2,
+          district3: district3
+        })
+        .then((response) => {
+          console.log(`ranking of ${rating} submitted for ${name}`, response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      } else if (office === 'USSenator') {
+        axios
+        .post('http://localhost:8000/post/sen', {
+          name: name,
+          state: stateABR,
+          rating: rating,
+          district1: district1,
+          district2: district2,
+          district3: district3
+        })
+        .then((response) => {
+          console.log(`ranking of ${rating} submitted for ${name}`, response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      } else if (office === 'USRepresentative') {
+        axios
+        .post('http://localhost:8000/post/rep', {
+          name: name,
+          state: stateABR,
+          rating: rating,
+          district1: district1,
+          district2: district2,
+          district3: district3
+        })
+        .then((response) => {
+          console.log(`ranking of ${rating} submitted for ${name}`, response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      } else if (officeGov === 'Governor') {
+        axios
+        .post('http://localhost:8000/post/gov', {
+          name: name,
+          state: stateABR,
+          rating: rating,
+          district1: district1,
+          district2: district2,
+          district3: district3
+        })
+        .then((response) => {
+          console.log(`ranking of ${rating} submitted for ${name}`, response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      } else if (officeSenRep === 'StateSenator') {
+        axios
+        .post('http://localhost:8000/post/stsen', {
+          name: name,
+          state: stateABR,
+          rating: rating,
+          district1: district1,
+          district2: district2,
+          district3: district3
+        })
+        .then((response) => {
+          console.log(`ranking of ${rating} submitted for ${name}`, response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      } else if (officeSenRep === 'StateRepresentative') {
+        axios
+        .post('http://localhost:8000/post/strep', {
+          name: name,
+          state: stateABR,
+          rating: rating,
+          district1: district1,
+          district2: district2,
+          district3: district3
+        })
+        .then((response) => {
+          console.log(`ranking of ${rating} submitted for ${name}`, response)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
     }
   }
 
