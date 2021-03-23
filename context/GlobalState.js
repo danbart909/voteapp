@@ -14,6 +14,10 @@ export default class GlobalState extends Component {
       // address: '170 Goodwin Rd, Thorp, WA 98946',
       address: '1820 Tree Top Way Marietta GA 30062',
       // address: '',
+      // name: '',
+      // date1: '',
+      // date2: '',
+      dataResultsView: false,
       gov: {
         districts: [],
         offices: {},
@@ -30,6 +34,18 @@ export default class GlobalState extends Component {
         4: { name: '', score: 0, timer: baseTimer },
         5: { name: '', score: 0, timer: baseTimer },
         6: { name: '', score: 0, timer: baseTimer }
+      },
+      dataPage: {
+        name: '',
+        state: '',
+        office: '',
+        date1: '',
+        date2: '',
+        view1: 'office',
+        view2: 'today',
+        state2: '',
+        office2: '',
+        response: {}
       }
     }
     this.interval = {
@@ -41,6 +57,67 @@ export default class GlobalState extends Component {
       5: 0,
       6: 0
     }
+  }
+
+  setDataPage = (name, state, office, date1, date2, view1, view2, state2, office2, response) => {
+    this.setState({
+      dataPage: {
+        name: name,
+        state: state,
+        office: office,
+        date1: date1,
+        date2: date2,
+        view1: view1,
+        view2: view2,
+        state2: state2,
+        office2: office2,
+        response: response
+      }
+    // }, () => console.log(this.state))
+    })
+  }
+
+  setDataState = (x) => {
+    this.setState({ dataPage: { state: x } })
+  }
+
+  setDataPageDates = (date1, date2, view) => {
+    this.setState({
+      dataPage: {
+        ...this.state.dataPage,
+        date1: date1,
+        date2: date2,
+        view2: view
+      }
+    // }, () => console.log(this.state))
+    })
+  }
+
+  setDataPageResponse = (x) => {
+    this.setState({ dataPage: { ...this.state.dataPage, response: x } })
+  }
+
+  setNameFromRepCard = (name) => {
+    let freshDate = new Date()
+    let today = freshDate.toISOString().slice(0, 10)
+    let lastWeekRaw1 = freshDate.setDate(freshDate.getDate() - 7)
+    let lastWeekRaw2 = new Date(lastWeekRaw1)
+    let lastWeek = lastWeekRaw2.toISOString().slice(0, 10)
+    this.setState({
+      dataPage: {
+        ...this.state.dataPage,
+        name: name,
+        date1: lastWeek,
+        date2: today,
+        view1: 'name',
+        view2: 'week'
+      }
+    // }, () => console.log(this.state))
+    })
+  }
+
+  setResultsView = () => {
+    this.setState({ dataResultsView: true })
   }
 
   setTimer = (name, rating, i) => {
@@ -168,7 +245,7 @@ export default class GlobalState extends Component {
 
     axios.get(url)
     .then((res) => {
-      console.log(res.data)
+      // console.log(res.data)
       this.setState({ data: res.data }, () => {this.processData()})
     })
     .catch((e) => {
@@ -197,13 +274,13 @@ export default class GlobalState extends Component {
     })
 
     this.state.data.officials.forEach(x => {
-      // This is for adding the party letter before rendering, making the array 'Party' unnecessary.
+      // This is for adding the party letter before rendering, making the array 'Party' unnecessary, but saving this render for later seems to be more prudent at the moment.
       // officials.push(x.name + (x.party === 'Democratic Party' ? ' (D)' : x.party === 'Republican Party' ? ' (R)' : ' (I)'))
       officials.push(x.name)
       party.push(x.party)
     })
 
-    // 'Offices' will always be shorter than 'Officers' because of multiple senators.
+    // 'Offices' will always be shorter than 'Officers' because of an additional senator.
 
     offices.splice(1, 0, 'U.S. Senator')
 
@@ -259,10 +336,17 @@ export default class GlobalState extends Component {
       <Context.Provider
         value={{
           address: this.state.address,
+          dataResultsView: this.state.dataResultsView,
           gov: this.state.gov,
           data: this.state.data,
           throwError: this.state.throwError,
           vote: this.state.vote,
+          dataPage: this.state.dataPage,
+          setDataPage: this.setDataPage,
+          setDataPageDates: this.setDataPageDates,
+          setDataPageResponse: this.setDataPageResponse,
+          setNameFromRepCard: this.setNameFromRepCard,
+          setResultsView: this.setResultsView,
           setTimer: this.setTimer,
           cLogAsync: this.cLogAsync,
           getData: this.getData,

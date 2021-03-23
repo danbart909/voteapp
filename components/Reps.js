@@ -55,9 +55,17 @@ export default class Reps extends Component {
 
   offModal = () => {
     this.setState({ modal: false })
-    this.closeModalDelay = setTimeout(() => {
-      this.offModalAfterTimeout()
-    }, 180)
+    this.offModalAfterTimeout()
+    // this.closeModalDelay = setTimeout(() => {
+    //   this.offModalAfterTimeout()
+    // }, 250)
+  }
+
+  offModalNavToData = () => {
+    this.context.setNameFromRepCard(this.state.data.name)
+    this.setState({modal: false})
+    this.offModalAfterTimeout()
+    this.props.navigation.navigate('Data')
   }
 
   offModalAfterTimeout = () => {
@@ -87,9 +95,10 @@ export default class Reps extends Component {
 
   offModal2 = () => {
     this.setState({ modal2: false })
-    this.closeModalDelay2 = setTimeout(() => {
-      this.offModalAfterTimeout2()
-    }, 180)
+    this.offModalAfterTimeout2()
+    // this.closeModalDelay2 = setTimeout(() => {
+    //   this.offModalAfterTimeout2()
+    // }, 250)
   }
 
   offModalAfterTimeout2 = () => {
@@ -186,6 +195,7 @@ export default class Reps extends Component {
         <Card
           state={this.state}
           offModal={() => this.offModal()}
+          offModalNavToData={() => this.offModalNavToData()}
         />
         <Card2
           state={this.state}

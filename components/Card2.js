@@ -24,6 +24,7 @@ export default class Card extends Component {
       let district2 = parseInt(this.context.gov.districts[2].replace( /\D+/g, '' ))
       let district3 = parseInt(this.context.gov.districts[3].replace( /\D+/g, '' ))
       let stateABR = this.context.gov.offices[5].slice(0, 2).trim()
+      let president = office.slice(0, 9)
       let officeGov = office.slice(0, 8)
       let officeSenRep = office.slice(2)
 
@@ -32,8 +33,9 @@ export default class Card extends Component {
 
       if (office === 'PresidentoftheUnitedStates') {
         axios
-        .post('http://localhost:8000/post/pres', {
+        .post('http://localhost:8000/post', {
           name: name,
+          office: president,
           state: stateABR,
           rating: rating,
           district1: district1,
@@ -48,8 +50,9 @@ export default class Card extends Component {
         })
       } else if (office === 'USSenator') {
         axios
-        .post('http://localhost:8000/post/sen', {
+        .post('http://localhost:8000/post', {
           name: name,
+          office: office,
           state: stateABR,
           rating: rating,
           district1: district1,
@@ -64,8 +67,9 @@ export default class Card extends Component {
         })
       } else if (office === 'USRepresentative') {
         axios
-        .post('http://localhost:8000/post/rep', {
+        .post('http://localhost:8000/post', {
           name: name,
+          office: office,
           state: stateABR,
           rating: rating,
           district1: district1,
@@ -80,8 +84,9 @@ export default class Card extends Component {
         })
       } else if (officeGov === 'Governor') {
         axios
-        .post('http://localhost:8000/post/gov', {
+        .post('http://localhost:8000/post', {
           name: name,
+          office: officeGov,
           state: stateABR,
           rating: rating,
           district1: district1,
@@ -96,8 +101,9 @@ export default class Card extends Component {
         })
       } else if (officeSenRep === 'StateSenator') {
         axios
-        .post('http://localhost:8000/post/stsen', {
+        .post('http://localhost:8000/post', {
           name: name,
+          office: officeSenRep,
           state: stateABR,
           rating: rating,
           district1: district1,
@@ -112,8 +118,9 @@ export default class Card extends Component {
         })
       } else if (officeSenRep === 'StateRepresentative') {
         axios
-        .post('http://localhost:8000/post/strep', {
+        .post('http://localhost:8000/post', {
           name: name,
+          office: officeSenRep,
           state: stateABR,
           rating: rating,
           district1: district1,
@@ -171,7 +178,7 @@ export default class Card extends Component {
     return (
       <View style={styles.m2CenteredV}>
         <Modal
-          animationType='fade'
+          animationType='none'
           transparent={true}
           visible={this.props.state.modal2}
           onRequestClose={() => {

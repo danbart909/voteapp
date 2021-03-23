@@ -16,7 +16,7 @@ export default class Home extends Component {
    
   render() {
 
-    this.props.navigation.navigate('Reps')
+    // this.props.navigation.navigate('Data')
 
     return (
       <ScrollView style={styles.scrollHome}>
@@ -41,6 +41,13 @@ export default class Home extends Component {
             onPress={() => this.props.navigation.navigate('Elections')}
           >
             <Text style={styles.homeWhiteText}>Election Polls</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.homeDataButton}
+            onPress={() => this.props.navigation.navigate('Data')}
+          >
+            <Text style={styles.homeWhiteText}>Data Page</Text>
           </TouchableOpacity>
 
         </View>

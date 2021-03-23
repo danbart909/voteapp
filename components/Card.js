@@ -35,7 +35,7 @@ export default class Card extends Component {
     return (
       <View style={styles.mCenteredV}>
         <Modal
-          animationType='fade'
+          animationType='none'
           transparent={true}
           visible={this.props.state.modal}
           onRequestClose={() => {
@@ -48,7 +48,7 @@ export default class Card extends Component {
 
               <View style={styles.mTop}>
                 <View style={styles.mOfficeV}>
-                  <Text style={styles.mtxtWhite}>{this.props.state.offices}</Text>
+                  <Text style={styles.mtxtWhite}>{this.props.state.office}</Text>
                 </View>
   
                 <View style={party === 'Democratic Party' ? styles.mDV : party === 'Republican Party' ? styles.mRV : styles.mIV}>
@@ -68,13 +68,24 @@ export default class Card extends Component {
                 {this.renderSocial()}
                 {/* {this.renderAddress()} */}
               </View>
-              <TouchableOpacity
-                // style={[styles.mButton, styles.mButtonClose]}
-                style={styles.mButtonClose}
-                onPress={() => this.props.offModal()}
-              >
-                <Text styles={styles.mButtonText}>Close</Text>
-              </TouchableOpacity>
+              <View style={styles.mButtonV}>
+                <TouchableOpacity
+                  // style={[styles.mButton, styles.mButtonClose]}
+                  style={styles.mButton}
+                  onPress={() => this.props.offModal()}
+                >
+                  <Text styles={styles.mButtonText}>Close</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  // style={[styles.mButton, styles.mButtonClose]}
+                  style={styles.mButton}
+                  onPress={() => this.props.offModalNavToData()}
+                >
+                  <Text styles={styles.mButtonText}>Data</Text>
+                </TouchableOpacity>
+              </View>
+
             </View>
           </View>
         </Modal>

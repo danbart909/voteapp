@@ -61,7 +61,7 @@ export default StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
   },
-  homeGeneralsButton: {
+  homeDataButton: {
     backgroundColor: 'indigo',
     width: 150,
     alignItems: 'center',
@@ -286,25 +286,12 @@ export default StyleSheet.create({
     shadowRadius: 4,
     elevation: 5
   },
-  // mButton: {
-  //   borderRadius: 5,
-  //   padding: 5,
-  //   elevation: 2,
-  //   width: 50,
-  //   alignSelf: 'center',
-  //   marginTop: 10,
-  //   marginBottom: 10
-  // },
-  mtxtBlack: {
-    textAlign: "center",
-    fontSize: 12
+  mButtonV: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center'
   },
-  mtxtWhite: {
-    textAlign: 'center',
-    color: 'white',
-    fontSize: 12
-  },
-  mButtonClose: {
+  mButton: {
     borderRadius: 5,
     padding: 5,
     elevation: 2,
@@ -314,6 +301,25 @@ export default StyleSheet.create({
     marginBottom: 10,
     backgroundColor: "#2196F3"
   },
+  mtxtBlack: {
+    textAlign: "center",
+    fontSize: 12
+  },
+  mtxtWhite: {
+    textAlign: 'center',
+    color: 'white',
+    fontSize: 12
+  },
+  // mButtonClose: {
+  //   borderRadius: 5,
+  //   padding: 5,
+  //   elevation: 2,
+  //   width: 50,
+  //   alignSelf: 'center',
+  //   marginTop: 10,
+  //   marginBottom: 10,
+  //   backgroundColor: "#2196F3"
+  // },
   mButtonText: {
     color: "white",
     fontWeight: "bold",
@@ -328,7 +334,7 @@ export default StyleSheet.create({
   mOfficeV: {
     flex: 1,
     padding: 10,
-    backgroundColor: 'black',
+    // backgroundColor: 'black',
     justifyContent: 'center'
   },
   mDV: {
@@ -523,20 +529,324 @@ export default StyleSheet.create({
 
 
 
-  /****************************************/
-  /*************** xxxxxxxx ***************/
-  /****************************************/
+  /************************************/
+  /*************** Data ***************/
+  /************************************/
 
 
 
-  xScrollHome: {
-    backgroundColor: '#072b36'
+  dataScrollHome: {
+    backgroundColor: '#072b36',
   },
-  xBodyV: {
+
+  dataHeaderV: {
+    flex: 1,
+    backgroundColor: 'black',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    paddingTop: 15,
+    paddingBottom: 8
+  },
+
+  dataHeaderFirst: {
+    borderWidth: 1,
+    borderColor: 'darkred',
+    padding: 5
+  },
+  dataHeaderFirstActive: {
+    backgroundColor: 'darkred',
+    padding: 5
+  },
+  dataHeaderFirstTx: {
+    color: 'white'
+  },
+
+  dataHeaderSecond: {
+    borderWidth: 1,
+    borderColor: 'teal',
+    padding: 5
+  },
+  dataHeaderSecondActive: {
+    backgroundColor: 'teal',
+    padding: 5
+  },
+  dataHeaderSecondTx: {
+    color: 'white'
+  },
+
+  dataHeaderThird: {
+    borderWidth: 1,
+    borderColor: 'gold',
+    padding: 5
+  },
+  dataHeaderThirdActive: {
+    backgroundColor: 'gold',
+    padding: 5
+  },
+  dataHeaderThirdTx: {
+    color: 'black'
+  },
+
+  dataHeaderFourth: {
+    borderWidth: 1,
+    borderColor: 'magenta',
+    padding: 5
+  },
+  dataHeaderFourthActive: {
+    backgroundColor: 'magenta',
+    padding: 5
+  },
+  dataHeaderFourthTx: {
+    color: 'black'
+  },
+
+  dataTopV: {
+    // flex: 1,
+    // justifyContent: 'center',
+    // alignItems: 'center'
+  },
+
+  dropDown: {
+    height: 300
+  },
+
+  dataNameV: {
+    backgroundColor: 'black',
+    paddingTop: 5,
+    paddingBottom: 5,
+    alignItems: 'center'
+  },
+  dataNameInput: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: 12.5,
+    marginTop: 7,
+    borderRadius: 5,
+    width: 250
+  },
+
+  dataStateV: {
+    backgroundColor: 'black',
+    paddingTop: 5,
+    paddingBottom: 5,
+    alignItems: 'center'
+  },
+  dataStateInput: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: 12.5,
+    marginTop: 7,
+    borderRadius: 5,
+    width: 100
+  },
+
+  dataOfficeV: {
+    backgroundColor: 'black',
+    paddingTop: 5,
+    paddingBottom: 5,
+    alignItems: 'center'
+  },
+  dataOfficeInput: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: 5,
+    marginTop: 7,
+    width: 250
+  },
+
+  dataOfficeStateV: {
+    flex: 1,
+    backgroundColor: 'black',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    // elevation: -1,
+    // zIndex: -1,
+    paddingTop: 2,
+    paddingBottom: 2,
+  },
+
+  dataOfficeStateLeft: {
+    // borderWidth: 1,
+    // borderColor: 'white',
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+  dataOfficeStateRight: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flex: 1,
+  },
+
+  dataOfficeState1Input: {
     borderWidth: 1,
     borderColor: 'white',
-    justifyContent: 'center',
-    alignItems: 'center'
+    backgroundColor: 'white',
+    color: 'black',
+    flex: 1,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderRadius: 5,
+    marginTop: 10,
+    marginRight: 2,
+    marginBottom: 3,
+    width: 100
+  },
+
+  dataOfficeState2Input: {
+    backgroundColor: 'white',
+    color: 'black',
+    alignSelf: 'stretch',
+    flex: 1,
+    width: 170,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderRadius: 5,
+    marginTop: 10,
+    marginLeft: 2,
+    marginBottom: 3,
+  },
+
+  dataDatePickV: {
+    // flex: 1,
+    backgroundColor: 'black',
+    flexDirection: 'row',
+    // justifyContent: 'stretch',
+    justifyContent: 'space-evenly',
+    // alignItems: '',
+    zIndex: -1,
+    elevation: -1,
+    paddingTop: 15,
+    paddingBottom: 15
+  },
+
+  dataDatePickFirst: {
+    borderWidth: 1,
+    borderColor: 'gold',
+    padding: 5
+  },
+  dataDatePickFirstActive: {
+    backgroundColor: 'gold',
+    padding: 5
+  },
+  dataFirstActiveTx: {
+    color: 'black'
+  },
+
+  dataDatePickSecond: {
+    borderWidth: 1,
+    borderColor: 'teal',
+    padding: 5
+  },
+  dataDatePickSecondActive: {
+    backgroundColor: 'teal',
+    padding: 5
+  },
+  dataSecondActiveTx: {
+    color: 'white'
+  },
+
+  dataDatePickThird: {
+    borderWidth: 1,
+    borderColor: 'orange',
+    padding: 5
+  },
+  dataDatePickThirdActive: {
+    backgroundColor: 'orange',
+    padding: 5
+  },
+  dataThirdActiveTx: {
+    color: 'black'
+  },
+
+  dataDatePickFourth: {
+    borderWidth: 1,
+    borderColor: 'darkred',
+    padding: 5
+  },
+  dataDatePickFourthActive: {
+    backgroundColor: 'darkred',
+    padding: 5
+  },
+  dataFourthActiveTx: {
+    color: 'white'
+  },
+
+  dataDateV: {
+    flex: 1,
+    backgroundColor: 'black',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    elevation: -1,
+    zIndex: -1
+  },
+
+  dataDateLeft: {
+    alignItems: 'center',
+  },
+  dataDateRight: {
+    alignItems: 'center',
+  },
+
+  dataDate1Input: {
+    backgroundColor: 'white',
+    color: 'black',
+    paddingTop: 12.5,
+    paddingBottom: 12.5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderRadius: 5,
+    marginTop: 7,
+    marginRight: 2
+  },
+
+  dataDate2Input: {
+    backgroundColor: 'white',
+    color: 'black',
+    paddingTop: 12.5,
+    paddingBottom: 12.5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderRadius: 5,
+    marginTop: 7,
+    marginLeft: 2
+  },
+
+  dataButtonV: {
+    backgroundColor: 'black',
+    // justifyContent: 'center',
+    alignItems: 'center',
+    paddingTop: 20,
+    paddingBottom: 20,
+    elevation: -1,
+    zIndex: -1
+  },
+  dataButton: {
+    borderWidth: 1,
+    borderColor: 'white',
+    alignItems: 'center',
+    padding: 5,
+    width: 80
+  },
+
+  dataBotV: {
+    flex: 1,
+    backgroundColor: '#2b0000',
+    borderWidth: 1,
+    borderColor: 'magenta',
+    elevation: -1,
+    zIndex: -1
+  },
+
+
+
+  dataTx: {
+    color: 'white'
   },
 
 
