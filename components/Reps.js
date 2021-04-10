@@ -121,30 +121,31 @@ export default class Reps extends Component {
     if (this.context.vote[i].score === 0) {
       return (
         <TouchableOpacity
+          key={i+800}
           style={styles.rVote}
           onPress={() => this.onModal2(modalData, office, i)}
         >
-          <Text style={styles.rVoteTx}>
+          <Text key={i+900} style={styles.rVoteTx}>
             Ready to Vote!
           </Text>
         </TouchableOpacity>
       )
     } else {
       return (
-        <View style={styles.rVote2}>
-          <View style={styles.rVote2Top}>
-            <Text style={styles.rVoteTx}>
+        <View key={i+1000} style={styles.rVote2}>
+          <View key={i+1100} style={styles.rVote2Top}>
+            <Text key={i+1200} style={styles.rVoteTx}>
               Timer:
             </Text>
-            <Text style={styles.rVoteTx}>
+            <Text key={i+1300} style={styles.rVoteTx}>
               {this.context.vote[i].timer}
             </Text>
           </View>
-          <View style={styles.rVote2Bot}>
-            <Text style={styles.rVoteTx}>
+          <View key={i+1400} style={styles.rVote2Bot}>
+            <Text key={i+1500} style={styles.rVoteTx}>
               Rating:
             </Text>
-            <Text style={styles.rVoteTx}>
+            <Text key={i+1600} style={styles.rVoteTx}>
               {this.context.vote[i].score}
             </Text>
           </View>
@@ -160,27 +161,28 @@ export default class Reps extends Component {
       let modalData = this.context.data.officials[i]
       let offices = this.context.gov.offices[i]
       arr.push(
-        <View key={i} style={styles.rInfoV}>
-          <View style={styles.rInfoLeft}>
+        <View key={i+100} style={styles.rInfoV}>
+          <View key={i+200} style={styles.rInfoLeft}>
 
-            <View style={styles.rOffices}>
-              <Text style={styles.rOfficesTx}>
+            <View key={i+300} style={styles.rOffices}>
+              <Text key={i+400} style={styles.rOfficesTx}>
                 {gov.offices[i]}
               </Text>
             </View>
 
             <TouchableOpacity
+              key={i+500} 
               style={gov.party[i] === 'Democratic Party' ? styles.rOfficialsD : gov.party[i] === 'Republican Party' ? styles.rOfficialsR : styles.rOfficialsI}
               onPress={() => this.onModal(modalData, offices)}
             >
-              <Text style={styles.rOfficialsTx}>
+              <Text key={i+600} style={styles.rOfficialsTx}>
                 {gov.officials[i]} {gov.party[i] === 'Democratic Party' ? '(D)' : gov.party[i] === 'Republican Party' ? '(R)' : '(I)'}
               </Text>
             </TouchableOpacity>
   
           </View>
 
-          <View style={styles.rInfoRight}>
+          <View key={i+700} style={styles.rInfoRight}>
             {this.voteOrRating(modalData, offices, i)}
           </View>
         </View>

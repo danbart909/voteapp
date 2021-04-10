@@ -535,6 +535,9 @@ export default StyleSheet.create({
 
 
 
+  dataTx: {
+    color: 'white'
+  },
   dataScrollHome: {
     backgroundColor: '#072b36',
   },
@@ -612,6 +615,8 @@ export default StyleSheet.create({
   },
 
   dataNameV: {
+    // borderWidth: 1,
+    // borderColor: 'red',
     backgroundColor: 'black',
     paddingTop: 5,
     paddingBottom: 5,
@@ -620,39 +625,42 @@ export default StyleSheet.create({
   dataNameInput: {
     backgroundColor: 'white',
     color: 'black',
-    padding: 12.5,
-    marginTop: 7,
+    padding: 8.8,
+    marginTop: 8,
     borderRadius: 5,
     width: 250
   },
 
   dataStateV: {
     backgroundColor: 'black',
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingVertical: 5,
     alignItems: 'center'
   },
   dataStateInput: {
     backgroundColor: 'white',
     color: 'black',
-    padding: 12.5,
-    marginTop: 7,
+    padding: 8.8,
+    marginTop: 8,
     borderRadius: 5,
-    width: 100
+    width: 250
   },
 
-  dataOfficeV: {
+  dataOfficeV: { 
     backgroundColor: 'black',
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingVertical: 5,
     alignItems: 'center'
   },
   dataOfficeInput: {
-    backgroundColor: 'white',
     color: 'black',
-    padding: 5,
-    marginTop: 7,
-    width: 250
+    backgroundColor: 'white',
+    borderColor: 'black',
+    borderWidth: 1,
+    padding: 8.8,
+    marginTop: 6,
+    borderRadius: 5,
+    width: 250,
+    // zIndex: 5,
+    // elevation: 5
   },
 
   dataOfficeStateV: {
@@ -662,8 +670,8 @@ export default StyleSheet.create({
     justifyContent: 'space-evenly',
     // elevation: -1,
     // zIndex: -1,
-    paddingTop: 2,
-    paddingBottom: 2,
+    paddingTop: 5,
+    paddingBottom: 5,
   },
 
   dataOfficeStateLeft: {
@@ -680,36 +688,35 @@ export default StyleSheet.create({
   },
 
   dataOfficeState1Input: {
-    borderWidth: 1,
-    borderColor: 'white',
+    // borderWidth: 1,
+    // borderColor: 'white',
     backgroundColor: 'white',
     color: 'black',
-    flex: 1,
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 5,
-    paddingRight: 5,
+    // alignSelf: 'stretch',
+    // flex: 1,
+    width: 170,
+    // paddingTop: 5,
+    // paddingBottom: 5,
+    // paddingLeft: 5,
+    // paddingRight: 5,
     borderRadius: 5,
-    marginTop: 10,
-    marginRight: 2,
-    marginBottom: 3,
-    width: 100
+    // marginTop: 10,
+    // marginRight: 2,
+    // marginBottom: 3,
+    padding: 8.8,
+    marginTop: 8,
+    borderRadius: 5,
   },
 
   dataOfficeState2Input: {
-    backgroundColor: 'white',
     color: 'black',
-    alignSelf: 'stretch',
-    flex: 1,
-    width: 170,
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 5,
-    paddingRight: 5,
+    backgroundColor: 'white',
+    borderColor: 'black',
+    borderWidth: 1,
+    padding: 8.8,
+    marginTop: 6,
     borderRadius: 5,
-    marginTop: 10,
-    marginLeft: 2,
-    marginBottom: 3,
+    width: 170,
   },
 
   dataDatePickV: {
@@ -836,18 +843,25 @@ export default StyleSheet.create({
 
   dataBotV: {
     flex: 1,
-    backgroundColor: '#2b0000',
-    borderWidth: 1,
-    borderColor: 'magenta',
+    // backgroundColor: '#2b0000',
+    // borderWidth: 1,
+    // borderColor: 'magenta',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#f5fcff",
     elevation: -1,
     zIndex: -1
   },
-
-
-
-  dataTx: {
-    color: 'white'
+  dataGraphLabelV: {
+    backgroundColor: '#f5fcff',
   },
+  dataGraphLabelTx: {
+    color: 'black',
+    padding: 10,
+    textAlign: 'center'
+  },
+
+
 
 
 });

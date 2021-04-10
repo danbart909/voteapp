@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { Dimensions, Modal, ScrollView, Text, TextInput, TouchableOpacity, View, Alert } from 'react-native'
-import { LineChart, BarChart, PieChart, ProgressChart, ContributionGraph, StackedBarChart } from "react-native-chart-kit"
-import DropDownPicker from 'react-native-dropdown-picker'
+import { VictoryBar, VictoryChart, VictoryLabel, VictoryTheme } from './Victory.js'
+// import { VictoryBar, VictoryChart, VictoryLabel, VictoryTheme } from 'victory'
+// import { VictoryBar, VictoryChart, VictoryLabel, VictoryTheme } from 'victory-native'
+// import DropDownPicker from 'react-native-dropdown-picker'
+import ModalSelector from 'react-native-modal-selector'
 import axios from 'react-native-axios'
 import Context from '../context/Context.js'
 import styles from '../styles.js'
@@ -16,12 +19,17 @@ export default class Data extends Component {
   static contextType = Context
 
   submitQuery = () => {
-    let { name, state, office, date1, date2, view1, view2, state2, office2 } = this.context.dataPage
+    let { name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label } = this.context.dataPage
     let urlName = name.replace(/[ ,.]/g, '')
     let newDate = new Date()
     let today = newDate.toISOString().slice(0, 10)
+    let mainURL = '192.168.137.1:8000'
+    // let mainURL = '10.0.0.144:8000'
+    // let mainURL = '10.28.18.7:8000'
+    // let mainURL = 'localhost:8000'
 
-    // console.log('query', this.state)
+    // console.log(this.context.dataPage)
+    // console.log(this.state.response)
 
     this.context.setResultsView()
 
@@ -30,78 +38,115 @@ export default class Data extends Component {
     } else if (view1 === 'name') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://localhost:8000/${urlName}/${date1}/${date2}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('urlName/date1/date2', urlName, date1, date2))
+          axios.get(`http://${mainURL}/${urlName}/${date1}/${date2}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('urlName/date1/date2', urlName, date1, date2, x.data)
+            })
             .catch(err => console.log(36, 'bad', err))
         } else {
-          axios.get(`http://localhost:8000/${urlName}/${date1}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('urlName/date1', urlName, date1))
+          axios.get(`http://${mainURL}/${urlName}/${date1}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('urlName/date1', urlName, date1, x.data)
+            })
             .catch(err => console.log(40, 'bad', err))
         }
       } else {
-        axios.get(`http://localhost:8000/${urlName}/${today}`)
-          // .then(x => this.setState({ response: x.data }))
-          .then(x => this.context.setDataPageResponse(x.data), console.log('urlName/today', urlName, today))
+        axios.get(`http://${mainURL}/${urlName}/${today}`)
+          .then(x => {
+            this.context.setDataPageResponse(x.data)
+            this.setState({response: x.data})
+            console.log('urlName/today', urlName, today, x.data)
+          })
           .catch(err => console.log(45, 'bad', err))
       }
     } else if (view1 === 'state') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://localhost:8000/${state}/${date1}/${date2}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('state/date1/date2', state, date1, date2))
+          axios.get(`http://${mainURL}/${state}/${date1}/${date2}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('state/date1/date2', state, date1, date2, x)
+            })
             .catch(err => console.log(52, 'bad', err))
         } else {
-          axios.get(`http://localhost:8000/${state}/${date1}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('state/date1', state, date1))
+          axios.get(`http://${mainURL}/${state}/${date1}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('state/date1', state, date1, x)
+            })
             .catch(err => console.log(56, 'bad', err))
         }
       } else {
-        axios.get(`http://localhost:8000/${state}/${today}`)
-          // .then(x => this.setState({ response: x.data }))
-          .then(x => this.context.setDataPageResponse(x.data), console.log('state/today', state, today))
+        axios.get(`http://${mainURL}/${state}/${today}`)
+          .then(x => {
+            this.context.setDataPageResponse(x.data)
+            this.setState({response: x.data})
+            console.log('state/today', state, today, x)
+          })
           .catch(err => console.log(61, 'bad', err))
       }
     } else if (view1 === 'office') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://localhost:8000/${office}/${date1}/${date2}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('office/date1/date2', office, date1, date2))
+          console.log(mainURL, '!')
+          axios.get(`http://${mainURL}/${office}/${date1}/${date2}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('office/date1/date2', office, date1, date2, x)
+            })
             .catch(err => console.log(68, 'bad', err))
         } else {
-          axios.get(`http://localhost:8000/${office}/${date1}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('office/date1', office, date1))
+          axios.get(`http://${mainURL}/${office}/${date1}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('office/date1', office, date1, x)
+            })
             .catch(err => console.log(72, 'bad', err))
         }
       } else {
-        axios.get(`http://localhost:8000/${office}/${today}`)
-          // .then(x => this.setState({ response: x.data }))
-          .then(x => this.context.setDataPageResponse(x.data), console.log('office/today', office, today))
+        axios.get(`http://${mainURL}/${office}/${today}`)
+          .then(x => {
+            this.context.setDataPageResponse(x.data)
+            this.setState({response: x.data})
+            console.log('office/today', office, today, x)
+          })
           .catch(err => console.log(77, 'bad', err))
       }
     } else if (view1 === 'stateOffice') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://localhost:8000/${office2}/${state2}/${date1}/${date2}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('office2/state2/date1/date2', office2, date1, date2))
+          axios.get(`http://${mainURL}/${office2}/${state2}/${date1}/${date2}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('office2/state2/date1/date2', office2, date1, date2, x)
+            })
             .catch(err => console.log(86, 'bad', err))
         } else {
-          axios.get(`http://localhost:8000/${office2}/${state2}/${date1}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('office2/state2/date1', office2, date1))
+          axios.get(`http://${mainURL}/${office2}/${state2}/${date1}`)
+            .then(x => {
+              this.context.setDataPageResponse(x.data)
+              this.setState({response: x.data})
+              console.log('office2/state2/date1', office2, date1, x)
+            })
             .catch(err => console.log(90, 'bad', err))
         }
       } else {
-        axios.get(`http://localhost:8000/${office2}/${state2}/${today}`)
-            // .then(x => this.setState({ response: x.data }))
-            .then(x => this.context.setDataPageResponse(x.data), console.log('office2/state2/today', office, today))
-            .catch(err => console.log(95, 'bad', err))
+        axios.get(`http://${mainURL}/${office2}/${state2}/${today}`)
+          .then(x => {
+            this.context.setDataPageResponse(x.data)
+            this.setState({response: x.data})
+            console.log('office2/state2/today', office, today, x)
+          })
+          .catch(err => console.log(95, 'bad', err))
       }
     }
   }
@@ -138,44 +183,70 @@ export default class Data extends Component {
 
   renderResults = () => {
     let res = this.context.dataPage.response
-    let html = []
-    let screenWidth = Dimensions.get("window").width
-    let chartConfig = {
-      backgroundGradientFrom: "#1E2923",
-      backgroundGradientFromOpacity: 0,
-      backgroundGradientTo: "#08130D",
-      backgroundGradientToOpacity: 0.5,
-      color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
-      strokeWidth: 2, // optional, default 3
-      barPercentage: 0.5,
-      useShadowColorFromDataset: false // optional
-    }
-    let data = {
-      labels: [`1: (${res.one})`, `2: (${res.two})`, , `3: (${res.three})`, `4: (${res.four})`, `5: (${res.five})`, `6: (${res.six})`, `7: (${res.seven})`, `8: (${res.eight})`, `9: (${res.nine})`, `10: (${res.ten})`],
-      datasets: [
-        {
-          data: [res.one, res.two, res.three, res.four, res.five, res.six, res.seven, res.eight, res.nine, res.ten],
-          color: (opacity = 1) => `rgba(134, 65, 244, ${opacity})`, // optional
-          strokeWidth: 2 // optional
-        }
-      ],
-      // legend: [`Votes for ${res.name || res.state || res.office}`]
-      legend: this.graphLabel(res)
-    }
+    // let res = {
+    //   name: 'Mayor McGooeyStickyPooPooPants Jr',
+    //   from: '2021-02-24',
+    //   to: '2021-03-26',
+    //   one: 3,
+    //   two: 4,
+    //   three: 9,
+    //   four: 13,
+    //   five: 7,
+    //   six: 10,
+    //   seven: 19,
+    //   eight: 5,
+    //   nine: 7,
+    //   ten: 8
+    // }
+    let data = [
+      {x: 1, y: res.one, label: res.one},
+      {x: 2, y: res.two, label: res.two},
+      {x: 3, y: res.three, label: res.three},
+      {x: 4, y: res.four, label: res.four},
+      {x: 5, y: res.five, label: res.five},
+      {x: 6, y: res.six, label: res.six},
+      {x: 7, y: res.seven, label: res.seven},
+      {x: 8, y: res.eight, label: res.eight},
+      {x: 9, y: res.nine, label: res.nine},
+      {x: 10, y: res.ten, label: res.ten},
+    ]
 
-    console.log(res)
+    // console.log('Data.js -> renderResults()', res, data)
 
-    for (let key of Object.keys(res)) {
-      html.push(<Text style={styles.dataTx}>{key}: {res[key]}</Text>)
-    }
+    // let html = []
+    // for (let key of Object.keys(res)) {
+    //   html.push(<Text style={styles.dataTx}>{key}: {res[key]}</Text>)
+    // }
 
     return (
-      <LineChart
-        data={data}
-        width={screenWidth}
-        height={220}
-        chartConfig={chartConfig}
-      />
+      <>
+        <View style={styles.dataGraphLabelV}>
+          <Text style={styles.dataGraphLabelTx}>{this.graphLabel(res)}</Text>
+        </View>
+        <VictoryChart
+          domainPadding={{ x: [10, 10], y: [0, 25] }}
+          padding={{ top: 0, bottom: 40, left: 40, right: 40 }}
+        >
+          <VictoryBar
+            barRatio={0.8}
+            style={{
+              data: {
+                fill: 'black'
+              }
+            }}
+            data={data}
+            labelComponent={
+              <VictoryLabel
+                dy={-10}
+                style={{
+                  fill: 'black',
+                  alignmentBaseline: 'central'
+                }}
+              />
+            }
+          />
+        </VictoryChart>
+      </>
     )
   }
 
@@ -190,7 +261,7 @@ export default class Data extends Component {
       SoO1 = x.state
       SoO2 = x.office
     } else if (x.office && !x.state) {
-      SoO1 = 'Error?'
+      SoO1 = x.office
     }
 
     (SoO1 !== '' && SoO2 === '') ? (html = `Ratings for ${SoO1}`) : (html = `Ratings for ${SoO1} and ${SoO2}`)
@@ -208,15 +279,15 @@ export default class Data extends Component {
   
   render() {
 
-    let { name, state, office, date1, date2, view1, view2, state2, office2, response } = this.context.dataPage
+    let { name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response } = this.context.dataPage
 
     let dropDownData = [
-      { label: 'President', value: 'President' },
-      { label: 'US Senator', value: 'USSenator' },
-      { label: 'US Representative', value: 'USRepresentative' },
-      { label: 'Governor', value: 'Governor' },
-      { label: 'State Senator', value: 'StateSenator' },
-      { label: 'State Representative', value: 'StateRepresentative' }
+      { key: 0, label: 'President', value: 'President' },
+      { key: 1, label: 'US Senator', value: 'USSenator' },
+      { key: 2, label: 'US Representative', value: 'USRepresentative' },
+      { key: 3, label: 'Governor', value: 'Governor' },
+      { key: 4, label: 'State Senator', value: 'StateSenator' },
+      { key: 5, label: 'State Representative', value: 'StateRepresentative' }
     ]
 
     return (
@@ -227,25 +298,27 @@ export default class Data extends Component {
           <View style={styles.dataHeaderV}>
             <TouchableOpacity
               style={view1 === 'name' ? styles.dataHeaderFirstActive : styles.dataHeaderFirst}
-              onPress={() => this.context.setDataPage(name, state, office, date1, date2, 'name', view2, state2, office2, response)}
+              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'name', view2, state2, office2, office2Label, response)}
             >
               <Text style={view1 === 'name' ? styles.dataHeaderFirstTx : styles.dataTx}>Name</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={view1 === 'state' ? styles.dataHeaderSecondActive : styles.dataHeaderSecond}
-              onPress={() => this.context.setDataPage(name, state, office, date1, date2, 'state', view2, state2, office2, response)}
+              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'state', view2, state2, office2, office2Label, response)}
             >
               <Text style={view1 === 'state' ? styles.dataHeaderSecondTx : styles.dataTx}>State</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={view1 === 'office' ? styles.dataHeaderThirdActive : styles.dataHeaderThird}
-              onPress={() => this.context.setDataPage(name, state, office, date1, date2, 'office', view2, state2, office2, response)}
+              onPress={() => {
+                this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'office', view2, state2, office2, office2Label, response)
+              }}
             >
               <Text style={view1 === 'office' ? styles.dataHeaderThirdTx : styles.dataTx}>Office</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={view1 === 'stateOffice' ? styles.dataHeaderFourthActive : styles.dataHeaderFourth}
-              onPress={() => this.context.setDataPage(name, state, office, date1, date2, 'stateOffice', view2, state2, office2, response)}
+              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'stateOffice', view2, state2, office2, office2Label, response)}
             >
               <Text style={view1 === 'stateOffice' ? styles.dataHeaderFourthTx : styles.dataTx}>State/Office</Text>
             </TouchableOpacity>
@@ -255,7 +328,7 @@ export default class Data extends Component {
             <Text style={styles.dataTx}>Search by Name</Text>
             <TextInput
               style={styles.dataNameInput}
-              onChangeText={(x) => this.context.setDataPage(x, state, office, date1, date2, view1, view2, state2, office2, response)}
+              onChangeText={(x) => this.context.setDataPage(x, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response)}
               value={name}
               placeholder='Mary Frances Williams'
               placeholderTextColor='silver'
@@ -266,7 +339,7 @@ export default class Data extends Component {
             <Text style={styles.dataTx}>Search by State</Text>
             <TextInput
               style={styles.dataStateInput}
-              onChangeText={(x) => this.context.setDataPage(name, x, office, date1, date2, view1, view2, state2, office2, response)}
+              onChangeText={(x) => this.context.setDataPage(name, x, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response)}
               value={state}
               placeholder='GA'
               placeholderTextColor='silver'
@@ -275,13 +348,20 @@ export default class Data extends Component {
 
           { view1 === 'office' && <View style={styles.dataOfficeV}>
             <Text style={styles.dataTx}>Search by Office</Text>
-            <DropDownPicker
-              items={dropDownData}
-              defaultValue={office}
-              style={styles.dataOfficeInput}
-              dropDownMaxHeight={225}
-              onChangeItem={ x => this.context.setDataPage(name, state, x.value, date1, date2, view1, view2, state2, office2, response) }
-            />
+            <ModalSelector
+              // keyExtractor={ x => x.label }
+              // labelExtractor={ x => x.label }
+              data={dropDownData}
+              initValue='Touch to Select'
+              onChange={ x => this.context.setDataPage(name, state, x.value, x.label, date1, date2, view1, view2, state2, office2, office2Label, response) }
+            >
+              <TextInput
+                style={styles.dataOfficeInput}
+                editable={false}
+                placeholder='Touch to Select'
+                value={this.context.dataPage.officeLabel}
+              />
+            </ModalSelector>
           </View> }
 
           { view1 === 'stateOffice' && <View style={styles.dataOfficeStateV}>
@@ -289,7 +369,7 @@ export default class Data extends Component {
               <Text style={styles.dataTx}>State</Text>
               <TextInput
                 style={styles.dataOfficeState1Input}
-                onChangeText={(x) => this.context.setDataPage(name, state, office, date1, date2, view1, view2, x, office2, response)}
+                onChangeText={ x => this.context.setDataPage(name, state, office, officeLabel, date1, date2, view1, view2, x, office2, office2Label, response) }
                 value={state2}
                 placeholder='GA'
                 placeholderTextColor='silver'
@@ -297,13 +377,18 @@ export default class Data extends Component {
             </View>
             <View style={styles.dataOfficeStateRight}>
               <Text style={styles.dataTx}>Office</Text>
-              <DropDownPicker
-                items={dropDownData}
-                defaultValue={office2}
-                style={styles.dataOfficeState2Input}
-                dropDownMaxHeight={225}
-                onChangeItem={x => this.context.setDataPage(name, state, office, date1, date2, view1, view2, state2, x.value, response) }
-              />
+              <ModalSelector
+                data={dropDownData}
+                initValue='Touch to Select'
+                onChange={ x => this.context.setDataPage(name, state, office, officeLabel, date1, date2, view1, view2, state2, x.value, x.label, response) }
+              >
+                <TextInput
+                  style={styles.dataOfficeState2Input}
+                  editable={false}
+                  placeholder='Touch to Select'
+                  value={this.context.dataPage.office2Label}
+                />
+              </ModalSelector>
             </View>
           </View> }
 
@@ -368,10 +453,48 @@ export default class Data extends Component {
         </View>
 
         <View style={styles.dataBotV}>
+          {/* {this.context.dataPage.response.one && this.renderResults()} */}
           {this.context.dataResultsView && this.renderResults()}
+          {/* {this.renderResults()} */}
         </View>
 
       </ScrollView>
     )
   }
 }
+
+
+
+// let data = [
+//   {x: 1, y: (res.one || 0), label: (res.one || 0)},
+//   {x: 2, y: (res.two || 0), label: (res.two || 0)},
+//   {x: 3, y: (res.three || 0), label: (res.three || 0)},
+//   {x: 4, y: (res.four || 0), label: (res.four || 0)},
+//   {x: 5, y: (res.five || 0), label: (res.five || 0)},
+//   {x: 6, y: (res.six || 0), label: (res.six || 0)},
+//   {x: 7, y: (res.seven || 0), label: (res.seven || 0)},
+//   {x: 8, y: (res.eight || 0), label: (res.eight || 0)},
+//   {x: 9, y: (res.nine || 0), label: (res.nine || 0)},
+//   {x: 10, y: (res.ten || 0), label: (res.ten || 0)},
+// ]
+
+
+// <DropDownPicker
+//   items={dropDownData}
+//   defaultValue={office}
+//   containerStyle={styles.dataOfficeInput}
+//   style={styles.dataOfficeInputPicker}
+//   dropDownStyle={styles.dataOfficeInputDropdown}
+//   dropDownMaxHeight={225}
+//   onChangeItem={ x => this.context.setDataPage(name, state, x.value, date1, date2, view1, view2, state2, office2, response) }
+// />
+
+// <DropDownPicker
+//   items={dropDownData}
+//   defaultValue={office2}
+//   containerStyle={styles.dataOfficeState2Input}
+//   style={styles.dataOfficeState2Picker}
+//   dropDownStyle={styles.dataOfficeState2InputDropdown}
+//   dropDownMaxHeight={225}
+//   onChangeItem={x => this.context.setDataPage(name, state, office, date1, date2, view1, view2, state2, x.value, response) }
+// />

@@ -39,13 +39,31 @@ export default class GlobalState extends Component {
         name: '',
         state: '',
         office: '',
+        officeLabel: '',
         date1: '',
         date2: '',
         view1: 'office',
-        view2: 'today',
+        view2: 'month',
         state2: '',
         office2: '',
-        response: {}
+        office2Label: '',
+        response: {
+          name: '',
+          office: '',
+          state: '',
+          from: '',
+          to: '',
+          one: '',
+          two: '',
+          three: '',
+          four: '',
+          five: '',
+          six: '',
+          seven: '',
+          eight: '',
+          nine: '',
+          ten: ''
+        }
       }
     }
     this.interval = {
@@ -59,22 +77,24 @@ export default class GlobalState extends Component {
     }
   }
 
-  setDataPage = (name, state, office, date1, date2, view1, view2, state2, office2, response) => {
+  setDataPage = (name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response) => {
     this.setState({
       dataPage: {
         name: name,
         state: state,
         office: office,
+        officeLabel: officeLabel,
         date1: date1,
         date2: date2,
         view1: view1,
         view2: view2,
         state2: state2,
         office2: office2,
+        office2Label: office2Label,
         response: response
       }
-    // }, () => console.log(this.state))
-    })
+    }, () => console.log(this.state))
+    // })
   }
 
   setDataState = (x) => {
@@ -94,6 +114,7 @@ export default class GlobalState extends Component {
   }
 
   setDataPageResponse = (x) => {
+    console.log('101', x)
     this.setState({ dataPage: { ...this.state.dataPage, response: x } })
   }
 
