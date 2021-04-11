@@ -23,10 +23,11 @@ export default class Data extends Component {
     let urlName = name.replace(/[ ,.]/g, '')
     let newDate = new Date()
     let today = newDate.toISOString().slice(0, 10)
-    let mainURL = '192.168.137.1:8000'
+    // let mainURL = '192.168.137.1:8000'
     // let mainURL = '10.0.0.144:8000'
     // let mainURL = '10.28.18.7:8000'
     // let mainURL = 'localhost:8000'
+    let mainURL = 'https://evening-springs-50934.herokuapp.com'
 
     // console.log(this.context.dataPage)
     // console.log(this.state.response)
@@ -38,7 +39,7 @@ export default class Data extends Component {
     } else if (view1 === 'name') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://${mainURL}/${urlName}/${date1}/${date2}`)
+          axios.get(`${mainURL}/${urlName}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -46,7 +47,7 @@ export default class Data extends Component {
             })
             .catch(err => console.log(36, 'bad', err))
         } else {
-          axios.get(`http://${mainURL}/${urlName}/${date1}`)
+          axios.get(`${mainURL}/${urlName}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -55,7 +56,7 @@ export default class Data extends Component {
             .catch(err => console.log(40, 'bad', err))
         }
       } else {
-        axios.get(`http://${mainURL}/${urlName}/${today}`)
+        axios.get(`${mainURL}/${urlName}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
             this.setState({response: x.data})
@@ -66,7 +67,7 @@ export default class Data extends Component {
     } else if (view1 === 'state') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://${mainURL}/${state}/${date1}/${date2}`)
+          axios.get(`${mainURL}/${state}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -74,7 +75,7 @@ export default class Data extends Component {
             })
             .catch(err => console.log(52, 'bad', err))
         } else {
-          axios.get(`http://${mainURL}/${state}/${date1}`)
+          axios.get(`${mainURL}/${state}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -83,7 +84,7 @@ export default class Data extends Component {
             .catch(err => console.log(56, 'bad', err))
         }
       } else {
-        axios.get(`http://${mainURL}/${state}/${today}`)
+        axios.get(`${mainURL}/${state}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
             this.setState({response: x.data})
@@ -95,7 +96,7 @@ export default class Data extends Component {
       if (date1 !== '') {
         if (date2 !== '') {
           console.log(mainURL, '!')
-          axios.get(`http://${mainURL}/${office}/${date1}/${date2}`)
+          axios.get(`${mainURL}/${office}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -103,7 +104,7 @@ export default class Data extends Component {
             })
             .catch(err => console.log(68, 'bad', err))
         } else {
-          axios.get(`http://${mainURL}/${office}/${date1}`)
+          axios.get(`${mainURL}/${office}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -112,7 +113,7 @@ export default class Data extends Component {
             .catch(err => console.log(72, 'bad', err))
         }
       } else {
-        axios.get(`http://${mainURL}/${office}/${today}`)
+        axios.get(`${mainURL}/${office}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
             this.setState({response: x.data})
@@ -123,7 +124,7 @@ export default class Data extends Component {
     } else if (view1 === 'stateOffice') {
       if (date1 !== '') {
         if (date2 !== '') {
-          axios.get(`http://${mainURL}/${office2}/${state2}/${date1}/${date2}`)
+          axios.get(`${mainURL}/${office2}/${state2}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -131,7 +132,7 @@ export default class Data extends Component {
             })
             .catch(err => console.log(86, 'bad', err))
         } else {
-          axios.get(`http://${mainURL}/${office2}/${state2}/${date1}`)
+          axios.get(`${mainURL}/${office2}/${state2}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
               this.setState({response: x.data})
@@ -140,7 +141,7 @@ export default class Data extends Component {
             .catch(err => console.log(90, 'bad', err))
         }
       } else {
-        axios.get(`http://${mainURL}/${office2}/${state2}/${today}`)
+        axios.get(`${mainURL}/${office2}/${state2}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
             this.setState({response: x.data})

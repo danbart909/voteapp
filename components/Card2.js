@@ -31,9 +31,11 @@ export default class Card extends Component {
       this.offModal()
       this.props.setVote(rating)
 
+      let url = 'https://evening-springs-50934.herokuapp.com'
+
       if (office === 'PresidentoftheUnitedStates') {
         axios
-        .post('http://localhost:8000/post', {
+        .post(`${url}/post`, {
           name: name,
           office: president,
           state: stateABR,
@@ -50,7 +52,7 @@ export default class Card extends Component {
         })
       } else if (office === 'USSenator') {
         axios
-        .post('http://localhost:8000/post', {
+        .post(`${url}/post`, {
           name: name,
           office: office,
           state: stateABR,
@@ -67,7 +69,7 @@ export default class Card extends Component {
         })
       } else if (office === 'USRepresentative') {
         axios
-        .post('http://localhost:8000/post', {
+        .post(`${url}/post`, {
           name: name,
           office: office,
           state: stateABR,
@@ -84,7 +86,7 @@ export default class Card extends Component {
         })
       } else if (officeGov === 'Governor') {
         axios
-        .post('http://localhost:8000/post', {
+        .post(`${url}/post`, {
           name: name,
           office: officeGov,
           state: stateABR,
@@ -101,7 +103,7 @@ export default class Card extends Component {
         })
       } else if (officeSenRep === 'StateSenator') {
         axios
-        .post('http://localhost:8000/post', {
+        .post(`${url}/post`, {
           name: name,
           office: officeSenRep,
           state: stateABR,
@@ -118,7 +120,7 @@ export default class Card extends Component {
         })
       } else if (officeSenRep === 'StateRepresentative') {
         axios
-        .post('http://localhost:8000/post', {
+        .post(`${url}/post`, {
           name: name,
           office: officeSenRep,
           state: stateABR,
