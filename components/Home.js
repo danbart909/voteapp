@@ -14,15 +14,6 @@ export default class Home extends Component {
   UNSAFE_componentWillMount() {
     this.context.getData()
   }
-
-  performGET = () => {
-    let mainURL = '192.168.137.1:8000'
-    // let mainURL = '10.0.0.144:8000'
-    // let mainURL = '10.28.18.7:8000'
-    axios.get(`http://${mainURL}/Governor/CO/2021-03-19/2021-03-19`)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
    
   render() {
 
@@ -37,13 +28,6 @@ export default class Home extends Component {
             onPress={() => console.log(this.context, this.context.dataPage)}
           >
             <Text style={styles.homeWhiteText}>c.log(this.state)</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.homeClogButton} 
-            onPress={() => this.performGET()}
-          >
-            <Text style={styles.homeWhiteText}>GET</Text>
           </TouchableOpacity>
           
           <TouchableOpacity
