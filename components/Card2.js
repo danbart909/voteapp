@@ -31,7 +31,7 @@ export default class Card extends Component {
       this.offModal()
       this.props.setVote(rating)
 
-      let url = 'https://evening-springs-50934.herokuapp.com'
+      let url = 'https://stormy-forest-24258.herokuapp.com'
 
       if (office === 'PresidentoftheUnitedStates') {
         axios
