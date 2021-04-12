@@ -31,6 +31,7 @@ export default class Data extends Component {
 
     // console.log(this.context.dataPage)
     // console.log(this.state.response)
+    // console.log('!!!')
 
     this.context.setResultsView()
 
@@ -183,9 +184,9 @@ export default class Data extends Component {
   }
 
   renderResults = () => {
-    let res = this.context.dataPage.response
+    let res = this.context.dataPageResponse
     // let res = {
-    //   name: 'Mayor McGooeyStickyPooPooPants Jr',
+    //   state: 'XX',
     //   from: '2021-02-24',
     //   to: '2021-03-26',
     //   one: 3,
@@ -212,7 +213,7 @@ export default class Data extends Component {
       {x: 10, y: res.ten, label: res.ten},
     ]
 
-    // console.log('Data.js -> renderResults()', res, data)
+    console.log('Data.js -> renderResults()', this.context.dataPageResponse)
 
     // let html = []
     // for (let key of Object.keys(res)) {
@@ -280,7 +281,8 @@ export default class Data extends Component {
   
   render() {
 
-    let { name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response } = this.context.dataPage
+    let { name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label} = this.context.dataPage
+    let { dataPageResponse } = this.context
 
     let dropDownData = [
       { key: 0, label: 'President', value: 'President' },
@@ -299,27 +301,27 @@ export default class Data extends Component {
           <View style={styles.dataHeaderV}>
             <TouchableOpacity
               style={view1 === 'name' ? styles.dataHeaderFirstActive : styles.dataHeaderFirst}
-              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'name', view2, state2, office2, office2Label, response)}
+              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'name', view2, state2, office2, office2Label)}
             >
               <Text style={view1 === 'name' ? styles.dataHeaderFirstTx : styles.dataTx}>Name</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={view1 === 'state' ? styles.dataHeaderSecondActive : styles.dataHeaderSecond}
-              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'state', view2, state2, office2, office2Label, response)}
+              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'state', view2, state2, office2, office2Label)}
             >
               <Text style={view1 === 'state' ? styles.dataHeaderSecondTx : styles.dataTx}>State</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={view1 === 'office' ? styles.dataHeaderThirdActive : styles.dataHeaderThird}
               onPress={() => {
-                this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'office', view2, state2, office2, office2Label, response)
+                this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'office', view2, state2, office2, office2Label)
               }}
             >
               <Text style={view1 === 'office' ? styles.dataHeaderThirdTx : styles.dataTx}>Office</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={view1 === 'stateOffice' ? styles.dataHeaderFourthActive : styles.dataHeaderFourth}
-              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'stateOffice', view2, state2, office2, office2Label, response)}
+              onPress={() => this.context.setDataPage(name, state, office, officeLabel, date1, date2, 'stateOffice', view2, state2, office2, office2Label)}
             >
               <Text style={view1 === 'stateOffice' ? styles.dataHeaderFourthTx : styles.dataTx}>State/Office</Text>
             </TouchableOpacity>
@@ -329,7 +331,7 @@ export default class Data extends Component {
             <Text style={styles.dataTx}>Search by Name</Text>
             <TextInput
               style={styles.dataNameInput}
-              onChangeText={(x) => this.context.setDataPage(x, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response)}
+              onChangeText={(x) => this.context.setDataPage(x, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label)}
               value={name}
               placeholder='Mary Frances Williams'
               placeholderTextColor='silver'
@@ -340,7 +342,7 @@ export default class Data extends Component {
             <Text style={styles.dataTx}>Search by State</Text>
             <TextInput
               style={styles.dataStateInput}
-              onChangeText={(x) => this.context.setDataPage(name, x, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response)}
+              onChangeText={(x) => this.context.setDataPage(name, x, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label)}
               value={state}
               placeholder='GA'
               placeholderTextColor='silver'
@@ -350,11 +352,11 @@ export default class Data extends Component {
           { view1 === 'office' && <View style={styles.dataOfficeV}>
             <Text style={styles.dataTx}>Search by Office</Text>
             <ModalSelector
-              // keyExtractor={ x => x.label }
-              // labelExtractor={ x => x.label }
+              keyExtractor={ x => x.label }
+              labelExtractor={ x => x.label }
               data={dropDownData}
               initValue='Touch to Select'
-              onChange={ x => this.context.setDataPage(name, state, x.value, x.label, date1, date2, view1, view2, state2, office2, office2Label, response) }
+              onChange={ x => this.context.setDataPage(name, state, x.value, x.label, date1, date2, view1, view2, state2, office2, office2Label) }
             >
               <TextInput
                 style={styles.dataOfficeInput}
@@ -370,7 +372,7 @@ export default class Data extends Component {
               <Text style={styles.dataTx}>State</Text>
               <TextInput
                 style={styles.dataOfficeState1Input}
-                onChangeText={ x => this.context.setDataPage(name, state, office, officeLabel, date1, date2, view1, view2, x, office2, office2Label, response) }
+                onChangeText={ x => this.context.setDataPage(name, state, office, officeLabel, date1, date2, view1, view2, x, office2, office2Label) }
                 value={state2}
                 placeholder='GA'
                 placeholderTextColor='silver'
@@ -381,7 +383,7 @@ export default class Data extends Component {
               <ModalSelector
                 data={dropDownData}
                 initValue='Touch to Select'
-                onChange={ x => this.context.setDataPage(name, state, office, officeLabel, date1, date2, view1, view2, state2, x.value, x.label, response) }
+                onChange={ x => this.context.setDataPage(name, state, office, officeLabel, date1, date2, view1, view2, state2, x.value, x.label) }
               >
                 <TextInput
                   style={styles.dataOfficeState2Input}
@@ -454,8 +456,8 @@ export default class Data extends Component {
         </View>
 
         <View style={styles.dataBotV}>
-          {/* {this.context.dataPage.response.one && this.renderResults()} */}
-          {this.context.dataResultsView && this.renderResults()}
+          {/* {this.context.dataPageResponse.one && this.renderResults()} */}
+          {/* {this.context.dataResultsView && this.renderResults()} */}
           {/* {this.renderResults()} */}
         </View>
 

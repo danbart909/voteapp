@@ -12,7 +12,8 @@ export default class GlobalState extends Component {
       // address: '1510 5th St Limon CO 80828',
       // address: '125 Churchill Ln, Lincoln, IL 62656',
       // address: '170 Goodwin Rd, Thorp, WA 98946',
-      address: '1820 Tree Top Way Marietta GA 30062',
+      // address: '1820 Tree Top Way Marietta GA 30062',
+      address: '1822 Tree Top Way Marietta GA 30062',
       // address: '',
       // name: '',
       // date1: '',
@@ -46,24 +47,24 @@ export default class GlobalState extends Component {
         view2: 'month',
         state2: '',
         office2: '',
-        office2Label: '',
-        response: {
-          name: '',
-          office: '',
-          state: '',
-          from: '',
-          to: '',
-          one: '',
-          two: '',
-          three: '',
-          four: '',
-          five: '',
-          six: '',
-          seven: '',
-          eight: '',
-          nine: '',
-          ten: ''
-        }
+        office2Label: ''
+      },
+      dataPageResponse: {
+        name: '',
+        office: '',
+        state: '',
+        from: '',
+        to: '',
+        one: 0,
+        two: 0,
+        three: 0,
+        four: 0,
+        five: 0,
+        six: 0,
+        seven: 0,
+        eight: 0,
+        nine: 0,
+        ten: 0
       }
     }
     this.interval = {
@@ -77,7 +78,7 @@ export default class GlobalState extends Component {
     }
   }
 
-  setDataPage = (name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label, response) => {
+  setDataPage = (name, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label) => {
     this.setState({
       dataPage: {
         name: name,
@@ -90,8 +91,7 @@ export default class GlobalState extends Component {
         view2: view2,
         state2: state2,
         office2: office2,
-        office2Label: office2Label,
-        response: response
+        office2Label: office2Label
       }
     }, () => console.log(this.state))
     // })
@@ -114,8 +114,8 @@ export default class GlobalState extends Component {
   }
 
   setDataPageResponse = (x) => {
-    console.log('101', x)
-    this.setState({ dataPage: { ...this.state.dataPage, response: x } })
+    console.log('GlobalState - 118 - setDataPageResponse', x)
+    this.setState({ dataPageResponse: x.data })
   }
 
   setNameFromRepCard = (name) => {

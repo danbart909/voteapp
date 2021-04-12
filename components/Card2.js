@@ -20,9 +20,9 @@ export default class Card extends Component {
       alert('please pick a rating')
     } else {
       let { name, office } = this.props.state
-      let district1 = parseInt(this.context.gov.districts[1].replace( /\D+/g, '' ))
-      let district2 = parseInt(this.context.gov.districts[2].replace( /\D+/g, '' ))
-      let district3 = parseInt(this.context.gov.districts[3].replace( /\D+/g, '' ))
+      let district1 = this.context.gov.districts[1] ? parseInt(this.context.gov.districts[1].replace( /\D+/g, '' )) : 'No Congressional District'
+      let district2 = this.context.gov.districts[2] ? parseInt(this.context.gov.districts[2].replace( /\D+/g, '' )) : 'No District for State Senate'
+      let district3 = this.context.gov.districts[3] ? parseInt(this.context.gov.districts[3].replace( /\D+/g, '' )) : 'No District for State Representative'
       let stateABR = this.context.gov.offices[5].slice(0, 2).trim()
       let president = office.slice(0, 9)
       let officeGov = office.slice(0, 8)
