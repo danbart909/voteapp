@@ -114,8 +114,7 @@ export default class GlobalState extends Component {
   }
 
   setDataPageResponse = (x) => {
-    console.log('GlobalState - 118 - setDataPageResponse', x)
-    this.setState({ dataPageResponse: x.data })
+    this.setState({ dataPageResponse: x }, () => console.log('GlobalState - 117 - setDataPageResponse', x, this.state.dataPageResponse))
   }
 
   setNameFromRepCard = (name) => {
@@ -363,6 +362,7 @@ export default class GlobalState extends Component {
           throwError: this.state.throwError,
           vote: this.state.vote,
           dataPage: this.state.dataPage,
+          dataPageResponse: this.state.dataPageResponse,
           setDataPage: this.setDataPage,
           setDataPageDates: this.setDataPageDates,
           setDataPageResponse: this.setDataPageResponse,

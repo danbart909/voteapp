@@ -33,7 +33,7 @@ export default class Data extends Component {
     // console.log(this.state.response)
     // console.log('!!!')
 
-    this.context.setResultsView()
+    // this.context.setResultsView()
 
     if (view1 === 'stateOffice' && (office2 === '' || state2 === '')) {
       alert('Please pick both a State and an Office when "State/Office" is selected.')
@@ -43,16 +43,16 @@ export default class Data extends Component {
           axios.get(`${mainURL}/${urlName}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
-              console.log('urlName/date1/date2', urlName, date1, date2, x.data)
+              console.log('urlName/date1/date2', urlName, date1, date2, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(36, 'bad', err))
         } else {
           axios.get(`${mainURL}/${urlName}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
-              console.log('urlName/date1', urlName, date1, x.data)
+              console.log('urlName/date1', urlName, date1, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(40, 'bad', err))
         }
@@ -60,8 +60,8 @@ export default class Data extends Component {
         axios.get(`${mainURL}/${urlName}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
-            this.setState({response: x.data})
-            console.log('urlName/today', urlName, today, x.data)
+            console.log('urlName/today', urlName, today, x)
+            this.context.setResultsView()
           })
           .catch(err => console.log(45, 'bad', err))
       }
@@ -71,16 +71,16 @@ export default class Data extends Component {
           axios.get(`${mainURL}/${state}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
               console.log('state/date1/date2', state, date1, date2, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(52, 'bad', err))
         } else {
           axios.get(`${mainURL}/${state}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
               console.log('state/date1', state, date1, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(56, 'bad', err))
         }
@@ -88,28 +88,27 @@ export default class Data extends Component {
         axios.get(`${mainURL}/${state}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
-            this.setState({response: x.data})
             console.log('state/today', state, today, x)
+            this.context.setResultsView()
           })
           .catch(err => console.log(61, 'bad', err))
       }
     } else if (view1 === 'office') {
       if (date1 !== '') {
         if (date2 !== '') {
-          console.log(mainURL, '!')
           axios.get(`${mainURL}/${office}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
               console.log('office/date1/date2', office, date1, date2, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(68, 'bad', err))
         } else {
           axios.get(`${mainURL}/${office}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
               console.log('office/date1', office, date1, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(72, 'bad', err))
         }
@@ -117,8 +116,8 @@ export default class Data extends Component {
         axios.get(`${mainURL}/${office}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
-            this.setState({response: x.data})
             console.log('office/today', office, today, x)
+            this.context.setResultsView()
           })
           .catch(err => console.log(77, 'bad', err))
       }
@@ -128,16 +127,16 @@ export default class Data extends Component {
           axios.get(`${mainURL}/${office2}/${state2}/${date1}/${date2}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
               console.log('office2/state2/date1/date2', office2, date1, date2, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(86, 'bad', err))
         } else {
           axios.get(`${mainURL}/${office2}/${state2}/${date1}`)
             .then(x => {
               this.context.setDataPageResponse(x.data)
-              this.setState({response: x.data})
               console.log('office2/state2/date1', office2, date1, x)
+              this.context.setResultsView()
             })
             .catch(err => console.log(90, 'bad', err))
         }
@@ -145,8 +144,8 @@ export default class Data extends Component {
         axios.get(`${mainURL}/${office2}/${state2}/${today}`)
           .then(x => {
             this.context.setDataPageResponse(x.data)
-            this.setState({response: x.data})
             console.log('office2/state2/today', office, today, x)
+            this.context.setResultsView()
           })
           .catch(err => console.log(95, 'bad', err))
       }
@@ -184,8 +183,10 @@ export default class Data extends Component {
   }
 
   renderResults = () => {
-    let res = this.context.dataPageResponse
-    // let res = {
+    // let dataPageResponse = ''
+    let dataPageResponse = this.context.dataPageResponse
+
+    // let dataPageResponse = {
     //   state: 'XX',
     //   from: '2021-02-24',
     //   to: '2021-03-26',
@@ -200,20 +201,41 @@ export default class Data extends Component {
     //   nine: 7,
     //   ten: 8
     // }
+
+    // if (this.context.dataPageResponse) {
+    //   dataPageResponse = this.context.dataPageResponse
+    // } else {
+    //   dataPageResponse = {
+    //     state: 'XX',
+    //     from: '2021-00-00',
+    //     to: '2021-99-99',
+    //     one: 5,
+    //     two: 10,
+    //     three: 15,
+    //     four: 20,
+    //     five: 25,
+    //     six: 30,
+    //     seven: 35,
+    //     eight: 40,
+    //     nine: 45,
+    //     ten: 50
+    //   }
+    // }
+
     let data = [
-      {x: 1, y: res.one, label: res.one},
-      {x: 2, y: res.two, label: res.two},
-      {x: 3, y: res.three, label: res.three},
-      {x: 4, y: res.four, label: res.four},
-      {x: 5, y: res.five, label: res.five},
-      {x: 6, y: res.six, label: res.six},
-      {x: 7, y: res.seven, label: res.seven},
-      {x: 8, y: res.eight, label: res.eight},
-      {x: 9, y: res.nine, label: res.nine},
-      {x: 10, y: res.ten, label: res.ten},
+      {x: 1, y: dataPageResponse.one, label: dataPageResponse.one},
+      {x: 2, y: dataPageResponse.two, label: dataPageResponse.two},
+      {x: 3, y: dataPageResponse.three, label: dataPageResponse.three},
+      {x: 4, y: dataPageResponse.four, label: dataPageResponse.four},
+      {x: 5, y: dataPageResponse.five, label: dataPageResponse.five},
+      {x: 6, y: dataPageResponse.six, label: dataPageResponse.six},
+      {x: 7, y: dataPageResponse.seven, label: dataPageResponse.seven},
+      {x: 8, y: dataPageResponse.eight, label: dataPageResponse.eight},
+      {x: 9, y: dataPageResponse.nine, label: dataPageResponse.nine},
+      {x: 10, y: dataPageResponse.ten, label: dataPageResponse.ten},
     ]
 
-    console.log('Data.js -> renderResults()', this.context.dataPageResponse)
+    console.log('Data.js -> renderResults()', this.context.dataPageResponse, dataPageResponse, data)
 
     // let html = []
     // for (let key of Object.keys(res)) {
@@ -223,7 +245,7 @@ export default class Data extends Component {
     return (
       <>
         <View style={styles.dataGraphLabelV}>
-          <Text style={styles.dataGraphLabelTx}>{this.graphLabel(res)}</Text>
+          <Text style={styles.dataGraphLabelTx}>{this.graphLabel(dataPageResponse)}</Text>
         </View>
         <VictoryChart
           domainPadding={{ x: [10, 10], y: [0, 25] }}
@@ -456,8 +478,7 @@ export default class Data extends Component {
         </View>
 
         <View style={styles.dataBotV}>
-          {/* {this.context.dataPageResponse.one && this.renderResults()} */}
-          {/* {this.context.dataResultsView && this.renderResults()} */}
+          {this.context.dataResultsView && this.renderResults()}
           {/* {this.renderResults()} */}
         </View>
 
@@ -489,7 +510,7 @@ export default class Data extends Component {
 //   style={styles.dataOfficeInputPicker}
 //   dropDownStyle={styles.dataOfficeInputDropdown}
 //   dropDownMaxHeight={225}
-//   onChangeItem={ x => this.context.setDataPage(name, state, x.value, date1, date2, view1, view2, state2, office2, response) }
+//   onChangeItem={ x => this.context.setDataPage(name, state, x.value, date1, date2, view1, view2, state2, office2) }
 // />
 
 // <DropDownPicker
@@ -499,5 +520,5 @@ export default class Data extends Component {
 //   style={styles.dataOfficeState2Picker}
 //   dropDownStyle={styles.dataOfficeState2InputDropdown}
 //   dropDownMaxHeight={225}
-//   onChangeItem={x => this.context.setDataPage(name, state, office, date1, date2, view1, view2, state2, x.value, response) }
+//   onChangeItem={x => this.context.setDataPage(name, state, office, date1, date2, view1, view2, state2, x.value) }
 // />

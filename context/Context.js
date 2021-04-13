@@ -8,6 +8,7 @@ export default React.createContext({
   throwError: false,
   vote: {},
   dataPage: {},
+  dataPageResponse: {},
   setDataPage: () => {},
   setDataPageDates: () => {},
   setDataPageResponse: () => {},

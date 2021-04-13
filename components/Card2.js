@@ -34,8 +34,7 @@ export default class Card extends Component {
       let url = 'https://stormy-forest-24258.herokuapp.com'
 
       if (office === 'PresidentoftheUnitedStates') {
-        axios
-        .post(`${url}/post`, {
+        axios.post(`${url}/post`, {
           name: name,
           office: president,
           state: stateABR,
@@ -45,14 +44,13 @@ export default class Card extends Component {
           district3: district3
         })
         .then((response) => {
-          console.log(`ranking of ${rating} submitted for ${name}`, response)
+          console.log(`rating of ${rating} submitted for ${name}`, response)
         })
         .catch((err) => {
           console.log(err)
         })
       } else if (office === 'USSenator') {
-        axios
-        .post(`${url}/post`, {
+        axios.post(`${url}/post`, {
           name: name,
           office: office,
           state: stateABR,
@@ -62,14 +60,13 @@ export default class Card extends Component {
           district3: district3
         })
         .then((response) => {
-          console.log(`ranking of ${rating} submitted for ${name}`, response)
+          console.log(`rating of ${rating} submitted for ${name}`, response)
         })
         .catch((err) => {
           console.log(err)
         })
       } else if (office === 'USRepresentative') {
-        axios
-        .post(`${url}/post`, {
+        axios.post(`${url}/post`, {
           name: name,
           office: office,
           state: stateABR,
@@ -79,14 +76,13 @@ export default class Card extends Component {
           district3: district3
         })
         .then((response) => {
-          console.log(`ranking of ${rating} submitted for ${name}`, response)
+          console.log(`rating of ${rating} submitted for ${name}`, response)
         })
         .catch((err) => {
           console.log(err)
         })
       } else if (officeGov === 'Governor') {
-        axios
-        .post(`${url}/post`, {
+        axios.post(`${url}/post`, {
           name: name,
           office: officeGov,
           state: stateABR,
@@ -96,14 +92,13 @@ export default class Card extends Component {
           district3: district3
         })
         .then((response) => {
-          console.log(`ranking of ${rating} submitted for ${name}`, response)
+          console.log(`rating of ${rating} submitted for ${name}`, response)
         })
         .catch((err) => {
           console.log(err)
         })
       } else if (officeSenRep === 'StateSenator') {
-        axios
-        .post(`${url}/post`, {
+        axios.post(`${url}/post`, {
           name: name,
           office: officeSenRep,
           state: stateABR,
@@ -113,14 +108,13 @@ export default class Card extends Component {
           district3: district3
         })
         .then((response) => {
-          console.log(`ranking of ${rating} submitted for ${name}`, response)
+          console.log(`rating of ${rating} submitted for ${name}`, response)
         })
         .catch((err) => {
           console.log(err)
         })
       } else if (officeSenRep === 'StateRepresentative') {
-        axios
-        .post(`${url}/post`, {
+        axios.post(`${url}/post`, {
           name: name,
           office: officeSenRep,
           state: stateABR,
@@ -130,7 +124,7 @@ export default class Card extends Component {
           district3: district3
         })
         .then((response) => {
-          console.log(`ranking of ${rating} submitted for ${name}`, response)
+          console.log(`rating of ${rating} submitted for ${name}`, response)
         })
         .catch((err) => {
           console.log(err)
