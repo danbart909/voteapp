@@ -192,6 +192,9 @@ export default class Reps extends Component {
   }
   
   render() {
+
+    let i = 0
+
     return (
       <ScrollView>
         <Card
@@ -226,7 +229,7 @@ export default class Reps extends Component {
           { this.context.throwError ? <Text style={{color: 'red'}}>unexpected response length recieved</Text> : <></>}
           { this.context.gov && <><View style={styles.rDistricts}>
             {this.context.gov.districts.map(x => {
-              return <Text style={styles.rDistrictsTx}>{x}</Text>
+              return <Text key={i++} style={styles.rDistrictsTx}>{x}</Text>
             })}
           </View>
           {this.displayData()}</> }

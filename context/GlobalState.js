@@ -93,8 +93,8 @@ export default class GlobalState extends Component {
         office2: office2,
         office2Label: office2Label
       }
-    }, () => console.log(this.state))
-    // })
+    // }, () => console.log(this.state))
+    })
   }
 
   setDataState = (x) => {
@@ -114,7 +114,8 @@ export default class GlobalState extends Component {
   }
 
   setDataPageResponse = (x) => {
-    this.setState({ dataPageResponse: x }, () => console.log('GlobalState - 117 - setDataPageResponse', x, this.state.dataPageResponse))
+    this.setState({ dataPageResponse: x })
+    // console.log('GlobalState - 117 - setDataPageResponse', x, this.state.dataPageResponse)
   }
 
   setNameFromRepCard = (name) => {
@@ -323,7 +324,8 @@ export default class GlobalState extends Component {
           offices: offices,
           officials: officials,
           party: party
-        }
+        },
+        throwError: false
       }, () => this.storeData())
     } else if (this.state.data.officials.length === 8) {
       // Addresses can sometimes have two state representatives because of district borders - the first option includes the second state rep and the second option excludes them.
@@ -335,7 +337,8 @@ export default class GlobalState extends Component {
           offices: offices,
           officials: officials,
           party: party
-        }
+        },
+        throwError: false
       }, () => this.storeData())
     } else if (this.state.data.officials.length > 8) {
       this.setState({

@@ -235,7 +235,7 @@ export default class Data extends Component {
       {x: 10, y: dataPageResponse.ten, label: dataPageResponse.ten},
     ]
 
-    console.log('Data.js -> renderResults()', this.context.dataPageResponse, dataPageResponse, data)
+    // console.log('Data.js -> renderResults()', this.context.dataPageResponse, dataPageResponse, data)
 
     // let html = []
     // for (let key of Object.keys(res)) {
