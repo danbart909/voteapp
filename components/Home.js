@@ -23,12 +23,12 @@ export default class Home extends Component {
       <ScrollView style={styles.scrollHome}>
         <View style={styles.homeBody1}>
         
-          <TouchableOpacity
+          {/* <TouchableOpacity
             style={styles.homeClogButton} 
             onPress={() => console.log(this.context, this.context.dataPage)}
           >
             <Text style={styles.homeWhiteText}>c.log(this.state)</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           
           <TouchableOpacity
             style={styles.homeRepsButton}

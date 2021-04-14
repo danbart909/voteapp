@@ -1,0 +1,207 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 805306368 bytes for Failed to commit area from 0x0000000501600000 to 0x0000000531600000 of length 805306368.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   The process is running with CompressedOops enabled, and the Java Heap may be blocking the growth of the native heap
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (t:/workspace/open/src/hotspot/os/windows/os_windows.cpp:3301), pid=12128, tid=2972
+#
+# JRE version:  (13.0.2+8) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (13.0.2+8, mixed mode, aot, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler -Xallow-no-source-files -classpath G:\Workspace\projects\pollapp\vote\node_modules\@unimodules\core\android\build\intermediates\compile_library_classes\release\classes.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\a1ca08d7587f014a90b6d087b13ad112\jetified-react-native-0.63.4-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\7147b053e770db454495f1a315c80260\appcompat-1.2.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.3.50\50ad05ea1c2595fb31b800e76db464d08d599af3\kotlin-stdlib-jdk7-1.3.50.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\551e1c34ca8174bf7dca4183c7e2776e\jetified-kotlin-reflect-1.3.50.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.infer.annotation\infer-annotation\0.11.2\f514ff4ca022a579d9cf7524846988b646ae4491\infer-annotation-0.11.2.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.yoga\proguard-annotations\1.14.1\3d015bb821875657ac8e4b808a223aae339defb2\proguard-annotations-1.14.1.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\f2db5228ac2b3cdf23b4a7a3d89d640c\swiperefreshlayout-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\6c2c6b2064c3ce76d93bdabf28f1b5a7\fragment-1.1.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\df0276612d32cb2c57386a8f6ebc54cb\appcompat-resources-1.2.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\09128c9df3cf30d651004a5e67422bf4\drawerlayout-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\4562d0c3aa971176d149f1638cffd846\viewpager-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\f540eec0b7a3790441c02bb1212ef359\loader-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\7a622030ff3018fce1b69900c76e7ba4\activity-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\1eab4ddb8e545e72ce040f2708afa286\vectordrawable-animated-1.1.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\00b42b5975934ce7c905a27a023dc30f\vectordrawable-1.1.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\0e477332cc5f8984129f27e20226ec92\customview-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\48619306ee17d4b5f17317979ef4acfc\core-1.3.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\cec6ba68c6d49c8e662631305068a4df\cursoradapter-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\69f339966afe0680f18732ad7b25cf22\interpolator-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\4ee442af40069521b189077f15c12659\lifecycle-runtime-2.1.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\a1ce6fbac7c391c2bb9081da1f3f1dd9\versionedparcelable-1.1.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\androidx.collection\collection\1.1.0\1f27220b47669781457de0d600849a5de0e89909\collection-1.1.0.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\358a1116fd91440797067f314bbce1d1\lifecycle-viewmodel-2.1.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\9947ad78ea5ed04b0d14f32fcc243cbb\savedstate-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\bf076fc84b56bfc432c8efdf0b6614ce\lifecycle-livedata-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\bcdbd8e16d9d859de6abac4afd2b5dc6\lifecycle-livedata-core-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\androidx.lifecycle\lifecycle-common\2.1.0\c67e7807d9cd6c329b9d0218b2ec4e505dd340b7\lifecycle-common-2.1.0.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\debd73000d537c3c2f2d7ad0fe0f3ff2\core-runtime-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\androidx.arch.core\core-common\2.1.0\b3152fc64428c9354344bd89848ecddc09b6f07e\core-common-2.1.0.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\androidx.annotation\annotation\1.1.0\e3a6fb2f40e3a3842e6b7472628ba4ce416ea4c8\annotation-1.1.0.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\9e72933e51cf6edcf8cfe8b2c5d4acb8\fresco-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\9f55ee2fc77313a1f87702c928ce8769\jetified-fbcore-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\51aa2da1f9e665fe6263d12486a7f96f\drawee-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\89e73f0cc38d9642d08cf40546426f73\imagepipeline-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\9b9c29cd2c2ee7e8c83f130d3e605562\imagepipeline-base-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\a882db49f3affb93b26e4f3131551753\soloader-0.9.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.soloader\annotation\0.9.0\dc58463712cb3e5f03d8ee5ac9743b9ced9afa77\annotation-0.9.0.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.soloader\nativeloader\0.9.0\677c7fbfcc847d7eb6082048d07b10afd4cff898\nativeloader-0.9.0.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\1c2fc108e47a2e82d119a4f4e047503b\nativeimagefilters-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\179fe386952d3ec24ffd30995528b4a6\nativeimagetranscoder-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\92a2773b3eeb01688de61fd718f26452\imagepipeline-okhttp3-2.0.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp-urlconnection\3.12.12\3cfbe11fb8c48d30600a70f90b3283fc858aea72\okhttp-urlconnection-3.12.12.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.12.12\d3e1ce1d2b3119adf270b2d00d947beb03fe3321\okhttp-3.12.12.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.15.0\bc28b5a964c8f5721eb58ee3f3c47a9bcbf4f4d8\okio-1.15.0.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.fbjni\fbjni-java-only\0.0.3\c4540aecb99b9ec380acef6c10bb6f700de8ac2c\fbjni-java-only-0.0.3.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.3.50\b529d1738c7e98bbfa36a4134039528f2ce78ebf\kotlin-stdlib-1.3.50.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.3.50\3d9cd3e1bc7b92e95f43d45be3bfbcf38e36ab87\kotlin-stdlib-common-1.3.50.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar;G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\build\intermediates\compile_only_not_namespaced_r_class_jar\release\R.jar;C:\Users\selfi\AppData\Local\Android\sdk\platforms\android-29\android.jar -d G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\build\tmp\kotlin-classes\release -Xjava-source-roots=G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\build\generated\source\buildConfig\release -module-name expo-splash-screen_release -no-jdk -no-reflect -no-stdlib -Xcommon-sources=G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\exceptions\NoContentViewException.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\NativeResourcesBasedSplashScreenViewProvider.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\singletons\SplashScreen.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\singletons\SplashScreenStatusBar.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenController.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenImageResizeMode.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenModule.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenPackage.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenView.kt,G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenViewProvider.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\exceptions\NoContentViewException.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\NativeResourcesBasedSplashScreenViewProvider.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\singletons\SplashScreen.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\singletons\SplashScreenStatusBar.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenController.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenImageResizeMode.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenModule.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenPackage.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenView.kt G:\Workspace\projects\pollapp\vote\node_modules\expo-splash-screen\android\src\main\java\expo\modules\splashscreen\SplashScreenViewProvider.kt
+
+Host: AMD Ryzen 5 5600X 6-Core Processor             , 12 cores, 47G,  Windows 10 , 64 bit Build 18362 (10.0.18362.778)
+Time: Wed Apr 14 13:45:10 2021 Eastern Daylight Time elapsed time: 0 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000203f92f4800):  JavaThread "Unknown thread" [_thread_in_vm, id=2972, stack(0x000000db91200000,0x000000db91300000)]
+
+Stack: [0x000000db91200000,0x000000db91300000]
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x624f9a]
+V  [jvm.dll+0x770cfa]
+V  [jvm.dll+0x7724af]
+V  [jvm.dll+0x772ab3]
+V  [jvm.dll+0x24bf08]
+V  [jvm.dll+0x6222aa]
+V  [jvm.dll+0x6170b5]
+V  [jvm.dll+0x30a88c]
+V  [jvm.dll+0x30a6c2]
+V  [jvm.dll+0x30fe36]
+V  [jvm.dll+0x353f46]
+V  [jvm.dll+0x353720]
+V  [jvm.dll+0x2e550a]
+V  [jvm.dll+0x2e67a2]
+V  [jvm.dll+0x74dd78]
+V  [jvm.dll+0x361989]
+V  [jvm.dll+0x730e65]
+V  [jvm.dll+0x3cc53f]
+V  [jvm.dll+0x3ce861]
+C  [jli.dll+0x51ff]
+C  [ucrtbase.dll+0x20e72]
+C  [KERNEL32.DLL+0x17bd4]
+C  [ntdll.dll+0x6ce51]
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x00007ff9b39fccb8, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+  0x00000203fe3a0800 GCTaskThread "GC Thread#0" [stack: 0x000000db91300000,0x000000db91400000] [id=26836]
+  0x00000203fe3d2000 ConcurrentGCThread "G1 Main Marker" [stack: 0x000000db91400000,0x000000db91500000] [id=24496]
+  0x00000203fe3d3000 ConcurrentGCThread "G1 Conc#0" [stack: 0x000000db91500000,0x000000db91600000] [id=6256]
+
+[error occurred during error reporting (printing all threads), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ff9b32351d7]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000203f92f12e0] Heap_lock - owner thread: 0x00000203f92f4800
+
+Heap address: 0x0000000501600000, size: 12266 MB, Compressed Oops mode: Non-zero based: 0x0000000501600000
+Narrow klass base: 0x0000000000000000, Narrow klass shift: 0
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes unloaded (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (8 events):
+Event: 0.004 Loaded shared library C:\Program Files\Java\jdk-13.0.2\bin\zip.dll
+Event: 0.004 Loaded shared library C:\Program Files\Java\jdk-13.0.2\bin\jimage.dll
+Event: 0.006 Loading shared library C:\Program Files\Java\jdk-13.0.2\lib\libjava.base-coop.dll failed, error code 126
+Event: 0.006 Loading shared library C:\Program Files\Java\jdk-13.0.2\lib\libjava.logging-coop.dll failed, error code 126
+Event: 0.006 Loading shared library C:\Program Files\Java\jdk-13.0.2\lib\libjdk.compiler-coop.dll failed, error code 126
+Event: 0.006 Loading shared library C:\Program Files\Java\jdk-13.0.2\lib\libjdk.scripting.nashorn-coop.dll failed, error code 126
+Event: 0.006 Loading shared library C:\Program Files\Java\jdk-13.0.2\lib\libjdk.internal.vm.ci-coop.dll failed, error code 126
+Event: 0.006 Loading shared library C:\Program Files\Java\jdk-13.0.2\lib\libjdk.internal.vm.compiler-coop.dll failed, error code 126
+
+
+Dynamic libraries:
+0x00007ff76cd10000 - 0x00007ff76cd1f000 	C:\Program Files\Java\jdk-13.0.2\bin\java.exe
+0x00007ffa17c20000 - 0x00007ffa17e10000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffa16340000 - 0x00007ffa163f2000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffa15770000 - 0x00007ffa15a13000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffa15af0000 - 0x00007ffa15bea000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffa0ad70000 - 0x00007ffa0ad88000 	C:\Program Files\Java\jdk-13.0.2\bin\jli.dll
+0x00007ffa0b970000 - 0x00007ffa0b985000 	C:\Program Files\Java\jdk-13.0.2\bin\VCRUNTIME140.dll
+0x00007ffa16400000 - 0x00007ffa164a3000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffa16e90000 - 0x00007ffa16f2e000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffa15cd0000 - 0x00007ffa15d67000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffa17930000 - 0x00007ffa17a50000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffa15d70000 - 0x00007ffa15f04000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffa15ca0000 - 0x00007ffa15cc1000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffa17bb0000 - 0x00007ffa17bd6000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffa15480000 - 0x00007ffa15614000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffa043d0000 - 0x00007ffa04655000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.778_none_e6c6b761130d4fb8\COMCTL32.dll
+0x00007ffa15360000 - 0x00007ffa153fe000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffa15f10000 - 0x00007ffa16246000 	C:\WINDOWS\System32\combase.dll
+0x00007ffa15400000 - 0x00007ffa15480000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffa135d0000 - 0x00007ffa135da000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffa16610000 - 0x00007ffa1663e000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ff9e6930000 - 0x00007ff9e69cb000 	C:\Program Files\Java\jdk-13.0.2\bin\msvcp140.dll
+0x00007ff9b2f40000 - 0x00007ff9b3a9d000 	C:\Program Files\Java\jdk-13.0.2\bin\server\jvm.dll
+0x00007ffa162c0000 - 0x00007ffa162c8000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffa00430000 - 0x00007ffa00439000 	C:\WINDOWS\SYSTEM32\WSOCK32.dll
+0x00007ffa10fb0000 - 0x00007ffa10fd4000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffa16d40000 - 0x00007ffa16daf000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffa10e00000 - 0x00007ffa10e2d000 	C:\WINDOWS\SYSTEM32\winmmbase.dll
+0x00007ffa15a20000 - 0x00007ffa15a6a000 	C:\WINDOWS\System32\cfgmgr32.dll
+0x00007ffa14b40000 - 0x00007ffa14b51000 	C:\WINDOWS\System32\kernel.appcore.dll
+0x00007ffa11a20000 - 0x00007ffa11a30000 	C:\Program Files\Java\jdk-13.0.2\bin\verify.dll
+0x00007ffa004a0000 - 0x00007ffa00694000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffa020c0000 - 0x00007ffa020ea000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ff9ffd00000 - 0x00007ff9ffd26000 	C:\Program Files\Java\jdk-13.0.2\bin\java.dll
+0x00007ff9f9440000 - 0x00007ff9f9457000 	C:\Program Files\Java\jdk-13.0.2\bin\zip.dll
+0x00007ffa0f1c0000 - 0x00007ffa0f1ca000 	C:\Program Files\Java\jdk-13.0.2\bin\jimage.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Java\jdk-13.0.2\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.18362.778_none_e6c6b761130d4fb8;C:\Program Files\Java\jdk-13.0.2\bin\server
+
+VM Arguments:
+java_command: org.jetbrains.kotlin.cli.jvm.K2JVMCompiler -Xallow-no-source-files -classpath G:\Workspace\projects\pollapp\vote\node_modules\@unimodules\core\android\build\intermediates\compile_library_classes\release\classes.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\a1ca08d7587f014a90b6d087b13ad112\jetified-react-native-0.63.4-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\7147b053e770db454495f1a315c80260\appcompat-1.2.0-api.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-jdk7\1.3.50\50ad05ea1c2595fb31b800e76db464d08d599af3\kotlin-stdlib-jdk7-1.3.50.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\551e1c34ca8174bf7dca4183c7e2776e\jetified-kotlin-reflect-1.3.50.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.infer.annotation\infer-annotation\0.11.2\f514ff4ca022a579d9cf7524846988b646ae4491\infer-annotation-0.11.2.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.google.code.findbugs\jsr305\3.0.2\25ea2e8b0c338a877313bd4672d3fe056ea78f0d\jsr305-3.0.2.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\com.facebook.yoga\proguard-annotations\1.14.1\3d015bb821875657ac8e4b808a223aae339defb2\proguard-annotations-1.14.1.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\javax.inject\javax.inject\1\6975da39a7040257bd51d21a231b76c915872d38\javax.inject-1.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\f2db5228ac2b3cdf23b4a7a3d89d640c\swiperefreshlayout-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\6c2c6b2064c3ce76d93bdabf28f1b5a7\fragment-1.1.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\df0276612d32cb2c57386a8f6ebc54cb\appcompat-resources-1.2.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\09128c9df3cf30d651004a5e67422bf4\drawerlayout-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2.1\4562d0c3aa971176d149f1638cffd846\viewpager-1.0.0-api.jar;C:\Users\selfi\.gradle\caches\transforms-2\files-2
+java_class_path (initial): C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-compiler-embeddable\1.3.61\c35c0833d5a1e3d229359758482c480306724618\kotlin-compiler-embeddable-1.3.61.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-reflect\1.3.61\2e07c9a84c9e118efb70eede7e579fd663932122\kotlin-reflect-1.3.61.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib\1.3.61\4702105e97f7396ae41b113fdbdc180ec1eb1e36\kotlin-stdlib-1.3.61.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-script-runtime\1.3.61\e5feb39c8de63dcbdc1154b34ca4413874231605\kotlin-script-runtime-1.3.61.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-daemon-embeddable\1.3.61\4de83e41a92c8395d89ab2e81d26b788ba163824\kotlin-daemon-embeddable-1.3.61.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.intellij.deps\trove4j\1.0.20181211\216c2e14b070f334479d800987affe4054cd563f\trove4j-1.0.20181211.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains.kotlin\kotlin-stdlib-common\1.3.61\65abb71d5afb850b68be03987b08e2c864ca3110\kotlin-stdlib-common-1.3.61.jar;C:\Users\selfi\.gradle\caches\modules-2\files-2.1\org.jetbrains\annotations\13.0\919f0dfe192fb4e063e7dacadee7f8bb9a2672a9\annotations-13.0.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     intx CICompilerCount                          = 4                                         {product} {ergonomic}
+     uint ConcGCThreads                            = 3                                         {product} {ergonomic}
+     uint G1ConcRefinementThreads                  = 10                                        {product} {ergonomic}
+   size_t G1HeapRegionSize                         = 2097152                                   {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 805306368                                 {product} {ergonomic}
+   size_t MarkStackSize                            = 4194304                                   {product} {ergonomic}
+   size_t MaxHeapSize                              = 12861833216                               {product} {ergonomic}
+   size_t MinHeapDeltaBytes                        = 2097152                                   {product} {ergonomic}
+   size_t MinHeapSize                              = 8388608                                   {product} {ergonomic}
+    uintx NonNMethodCodeHeapSize                   = 5839372                                {pd product} {ergonomic}
+    uintx NonProfiledCodeHeapSize                  = 122909434                              {pd product} {ergonomic}
+    uintx ProfiledCodeHeapSize                     = 122909434                              {pd product} {ergonomic}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+   size_t SoftMaxHeapSize                          = 12861833216                            {manageable} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Java\jdk-13.0.2
+CLASSPATH=G:\Workspace\projects\pollapp\vote\android\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Python27\;C:\Python27\Scripts;C:\Program Files (x86)\Razer Chroma SDK\bin;C:\Program Files\Razer Chroma SDK\bin;C:\Program Files (x86)\Java\jre1.8.0_131\bin;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\Plantronics\Spokes3G\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\nodejs\;C:\PostgreSQL\12\bin;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Git\cmd;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\selfi\AppData\Local\Programs\Python\Python37-32\Scripts\;C:\Users\selfi\AppData\Local\Programs\Python\Python37-32\;C:\Users\selfi\AppData\Local\Microsoft\WindowsApps;C:\Microsoft VS Code\bin;C:\Users\selfi\AppData\Local\GitHubDesktop\bin;C:\Users\selfi\AppData\Roaming\npm;C:\heroku\bin;C:\PostgreSQL\12\bin;C:\Users\selfi\AppData\Local\Android\Sdk\platform-tools;C:\Users\selfi\AppData\Local\Android\Sdk;
+USERNAME=selfi
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 33 Stepping 0, AuthenticAMD
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 10 , 64 bit Build 18362 (10.0.18362.778)
+
+CPU:total 12 (initial active 12) (12 cores per cpu, 2 threads per core) family 25 model 33 stepping 0, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, erms, mmxext, 3dnowpref, lzcnt, sse4a, ht, tsc, tscinvbit, tscinv, bmi1, bmi2, adx, sha, fma
+
+Memory: 4k page, system-wide physical 49063M (29921M free)
+TotalPageFile size 79485M (AvailPageFile size 99M)
+current process WorkingSet (physical memory assigned to process): 10M, peak: 10M
+current process commit charge ("private bytes"): 66M, peak: 834M
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (13.0.2+8) for windows-amd64 JRE (13.0.2+8), built on Dec 11 2019 09:20:33 by "mach5one" with unknown MS VC++:1916
+
+END.

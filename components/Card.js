@@ -12,10 +12,11 @@ export default class Card extends Component {
     let social = this.props.state.data.channels
     if (social) {
     let html = []
+    let i = 0
     social.forEach(x => {
-      html.push(<View style={styles.mSocialV2}>
-        <Text style={styles.mtxtWhite}>{x.type}</Text>
-        <Text style={styles.mtxtWhite}>{x.id}</Text>
+      html.push(<View key={i++} style={styles.mSocialV2}>
+        <Text key={i++} style={styles.mtxtWhite}>{x.type}</Text>
+        <Text key={i++} style={styles.mtxtWhite}>{x.id}</Text>
       </View>)
     })
     return (<>
@@ -71,18 +72,18 @@ export default class Card extends Component {
               <View style={styles.mButtonV}>
                 <TouchableOpacity
                   // style={[styles.mButton, styles.mButtonClose]}
-                  style={styles.mButton}
+                  style={styles.mButtonClose}
                   onPress={() => this.props.offModal()}
                 >
-                  <Text styles={styles.mButtonText}>Close</Text>
+                  <Text style={styles.mButtonText}>Close</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
                   // style={[styles.mButton, styles.mButtonClose]}
-                  style={styles.mButton}
+                  style={styles.mButtonData}
                   onPress={() => this.props.offModalNavToData()}
                 >
-                  <Text styles={styles.mButtonText}>Data</Text>
+                  <Text style={styles.mButtonText}>Data</Text>
                 </TouchableOpacity>
               </View>
 

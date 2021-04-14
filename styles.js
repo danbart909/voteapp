@@ -269,13 +269,14 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // backgroundColor: "black",
   },
   mV: {
-    width: 250,
+    width: 320,
     height: 400,
     backgroundColor: "black",
     borderRadius: 5,
+    borderWidth: 2,
+    borderColor: 'indigo',
     textAlign: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -289,41 +290,40 @@ export default StyleSheet.create({
   mButtonV: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderColor: 'indigo',
   },
-  mButton: {
+  mButtonClose: {
+    borderRadius: 5,
+    padding: 5,
+    elevation: 2,
+    width: 60,
+    marginTop: 10,
+    marginBottom: 10,
+    backgroundColor: "#ed4a4f"
+  },
+  mButtonData: {
     borderRadius: 5,
     padding: 5,
     elevation: 2,
     width: 50,
-    alignSelf: 'center',
     marginTop: 10,
     marginBottom: 10,
-    backgroundColor: "#2196F3"
+    backgroundColor: '#0af52d'
+  },
+  mButtonText: {
+    color: "black",
+    alignSelf: 'center',
+    textAlign: "center"
   },
   mtxtBlack: {
-    textAlign: "center",
     fontSize: 12
   },
   mtxtWhite: {
     textAlign: 'center',
     color: 'white',
     fontSize: 12
-  },
-  // mButtonClose: {
-  //   borderRadius: 5,
-  //   padding: 5,
-  //   elevation: 2,
-  //   width: 50,
-  //   alignSelf: 'center',
-  //   marginTop: 10,
-  //   marginBottom: 10,
-  //   backgroundColor: "#2196F3"
-  // },
-  mButtonText: {
-    color: "white",
-    fontWeight: "bold",
-    textAlign: "center"
   },
   mTop: {
     flex: 4,
@@ -334,7 +334,6 @@ export default StyleSheet.create({
   mOfficeV: {
     flex: 1,
     padding: 10,
-    // backgroundColor: 'black',
     justifyContent: 'center'
   },
   mDV: {
@@ -358,25 +357,21 @@ export default StyleSheet.create({
   mNV: {
     flex: 4,
     padding: 10,
-    backgroundColor: 'indigo',
     justifyContent: 'center'
   },
   mURLV: {
     flex: 2,
     padding: 10,
-    backgroundColor: 'indigo',
     justifyContent: 'center'
   },
   mPhonesV: {
     flex: 2,
     padding: 10,
-    backgroundColor: 'indigo',
     justifyContent: 'center'
   },
   mSocialV: {
     flex: 3,
     padding: 10,
-    backgroundColor: 'indigo',
     justifyContent: 'space-around'
   },
   mSocialV2: {
@@ -398,10 +393,12 @@ export default StyleSheet.create({
     alignItems: "center",
   },
   m2V: {
-    width: 330,
+    width: 400,
     height: 210,
-    backgroundColor: "white",
+    backgroundColor: "black",
     borderRadius: 5,
+    borderWidth: 2,
+    borderColor: 'indigo',
     textAlign: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -470,24 +467,25 @@ export default StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-evenly',
-    backgroundColor: 'black'
+    borderTopWidth: 1,
+    borderColor: 'indigo',
   },
   m2txtWhite: {
     color: 'white',
     textAlign: 'center'
   },
   m2ButtonClose: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#ed4a4f",
     borderRadius: 5,
     padding: 5,
     elevation: 2,
-    width: 50,
+    width: 60,
     alignSelf: 'center',
     marginTop: 10,
     marginBottom: 10
   },
   m2ButtonVote: {
-    backgroundColor: "#961f0b",
+    backgroundColor: '#0af52d',
     borderRadius: 5,
     padding: 5,
     elevation: 2,
@@ -497,12 +495,14 @@ export default StyleSheet.create({
     marginBottom: 10
   },
   m2ButtonCloseTxt: {
-    color: 'white',
-    textAlign: 'center'
+    color: "black",
+    alignSelf: 'center',
+    textAlign: "center"
   },
   m2ButtonVoteTxt: {
-    color: 'white',
-    textAlign: 'center'
+    color: "black",
+    alignSelf: 'center',
+    textAlign: "center"
   },
 
 

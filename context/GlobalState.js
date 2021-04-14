@@ -9,11 +9,11 @@ export default class GlobalState extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // address: '1510 5th St Limon CO 80828',
-      // address: '125 Churchill Ln, Lincoln, IL 62656',
-      // address: '170 Goodwin Rd, Thorp, WA 98946',
-      // address: '1820 Tree Top Way Marietta GA 30062',
-      address: '1822 Tree Top Way Marietta GA 30062',
+      // address: '1510 5th St, Limon CO 80828',
+      // address: '125 Churchill Ln, Lincoln IL 62656',
+      // address: '170 Goodwin Rd, Thorp WA 98946',
+      // address: '1822 Tree Top Way, Marietta GA 30062',
+      address: '1820 Tree Top Way, Marietta GA 30062',
       // address: '',
       // name: '',
       // date1: '',
@@ -43,8 +43,8 @@ export default class GlobalState extends Component {
         officeLabel: '',
         date1: '',
         date2: '',
-        view1: 'office',
-        view2: 'month',
+        view1: 'name',
+        view2: 'range',
         state2: '',
         office2: '',
         office2Label: ''

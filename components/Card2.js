@@ -202,13 +202,13 @@ export default class Card extends Component {
                   style={styles.m2ButtonClose}
                   onPress={() => this.offModal()}
                 >
-                  <Text styles={styles.m2ButtonCloseTxt}>Close</Text>
+                  <Text style={styles.m2ButtonCloseTxt}>Close</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
                   style={styles.m2ButtonVote}
                   onPress={() => this.vote()}
                 >
-                  <Text styles={styles.m2ButtonVoteTxt}>Vote</Text>
+                  <Text style={styles.m2ButtonVoteTxt}>Vote</Text>
                 </TouchableOpacity>
               </View>
             </View>

@@ -355,7 +355,7 @@ export default class Data extends Component {
               style={styles.dataNameInput}
               onChangeText={(x) => this.context.setDataPage(x, state, office, officeLabel, date1, date2, view1, view2, state2, office2, office2Label)}
               value={name}
-              placeholder='Mary Frances Williams'
+              placeholder='Raphael Warnock'
               placeholderTextColor='silver'
             />
           </View> }

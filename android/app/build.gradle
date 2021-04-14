@@ -153,6 +153,13 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
         }
+        release {
+          storeFile file('appkey1.keystore')
+          storePassword 'rainbow6'
+          // storePassword System.console().readLine("\npassword:")
+          // keyAlias System.console().readLine("\nAlias: ")
+          // keyPassword System.console().readLine("\nAlias password: ")
+        }
     }
     buildTypes {
         debug {
