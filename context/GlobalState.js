@@ -3,7 +3,7 @@ import Context from './Context.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'react-native-axios'
 
-let baseTimer = 2
+let baseTimer = 3
 
 export default class GlobalState extends Component {
   constructor(props) {
@@ -13,11 +13,8 @@ export default class GlobalState extends Component {
       // address: '125 Churchill Ln, Lincoln IL 62656',
       // address: '170 Goodwin Rd, Thorp WA 98946',
       // address: '1822 Tree Top Way, Marietta GA 30062',
-      address: '1820 Tree Top Way, Marietta GA 30062',
-      // address: '',
-      // name: '',
-      // date1: '',
-      // date2: '',
+      // address: '1820 Tree Top Way, Marietta GA 30062',
+      address: '',
       dataResultsView: false,
       gov: {
         districts: [],
