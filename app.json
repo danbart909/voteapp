@@ -1,10 +1,10 @@
 {
-  "name": "firstNative",
-  "displayName": "firstNative",
+  "name": "pollapp",
+  "displayName": "pollapp",
   "expo": {
-    "name": "firstNative",
-    "slug": "firstNative",
-    "version": "1.0.0",
+    "name": "pollapp",
+    "slug": "pollapp",
+    "version": "0.3",
     "assetBundlePatterns": [
       "**/*"
     ]

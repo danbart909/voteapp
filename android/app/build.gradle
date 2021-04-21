@@ -155,8 +155,13 @@ android {
         }
         release {
           storeFile file('appkey1.keystore')
-          storePassword 'rainbow6'
-          // storePassword System.console().readLine("\npassword:")
+          // def password = null
+          // def console = System.console()
+          // if (console != null) {
+          //   password = console.readLine("Enter keystore password: ")
+          // }
+          // storePassword password
+          // storePassword System.console().readLine("\nKeystore password: ")
           // keyAlias System.console().readLine("\nAlias: ")
           // keyPassword System.console().readLine("\nAlias password: ")
         }

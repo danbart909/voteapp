@@ -29,12 +29,6 @@ export default class Data extends Component {
     // let mainURL = 'localhost:8000'
     let mainURL = 'https://stormy-forest-24258.herokuapp.com'
 
-    // console.log(this.context.dataPage)
-    // console.log(this.state.response)
-    // console.log('!!!')
-
-    // this.context.setResultsView()
-
     if (view1 === 'stateOffice' && (office2 === '' || state2 === '')) {
       alert('Please pick both a State and an Office when "State/Office" is selected.')
     } else if (view1 === 'name') {
@@ -44,7 +38,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('urlName/date1/date2', urlName, date1, date2, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(36, 'bad', err))
         } else {
@@ -52,7 +46,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('urlName/date1', urlName, date1, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(40, 'bad', err))
         }
@@ -61,7 +55,7 @@ export default class Data extends Component {
           .then(x => {
             this.context.setDataPageResponse(x.data)
             console.log('urlName/today', urlName, today, x)
-            this.context.setResultsView()
+            this.context.setDataResultsView()
           })
           .catch(err => console.log(45, 'bad', err))
       }
@@ -72,7 +66,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('state/date1/date2', state, date1, date2, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(52, 'bad', err))
         } else {
@@ -80,7 +74,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('state/date1', state, date1, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(56, 'bad', err))
         }
@@ -89,7 +83,7 @@ export default class Data extends Component {
           .then(x => {
             this.context.setDataPageResponse(x.data)
             console.log('state/today', state, today, x)
-            this.context.setResultsView()
+            this.context.setDataResultsView()
           })
           .catch(err => console.log(61, 'bad', err))
       }
@@ -100,7 +94,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('office/date1/date2', office, date1, date2, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(68, 'bad', err))
         } else {
@@ -108,7 +102,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('office/date1', office, date1, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(72, 'bad', err))
         }
@@ -117,7 +111,7 @@ export default class Data extends Component {
           .then(x => {
             this.context.setDataPageResponse(x.data)
             console.log('office/today', office, today, x)
-            this.context.setResultsView()
+            this.context.setDataResultsView()
           })
           .catch(err => console.log(77, 'bad', err))
       }
@@ -128,7 +122,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('office2/state2/date1/date2', office2, date1, date2, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(86, 'bad', err))
         } else {
@@ -136,7 +130,7 @@ export default class Data extends Component {
             .then(x => {
               this.context.setDataPageResponse(x.data)
               console.log('office2/state2/date1', office2, date1, x)
-              this.context.setResultsView()
+              this.context.setDataResultsView()
             })
             .catch(err => console.log(90, 'bad', err))
         }
@@ -145,7 +139,7 @@ export default class Data extends Component {
           .then(x => {
             this.context.setDataPageResponse(x.data)
             console.log('office2/state2/today', office, today, x)
-            this.context.setResultsView()
+            this.context.setDataResultsView()
           })
           .catch(err => console.log(95, 'bad', err))
       }
@@ -183,45 +177,7 @@ export default class Data extends Component {
   }
 
   renderResults = () => {
-    // let dataPageResponse = ''
     let dataPageResponse = this.context.dataPageResponse
-
-    // let dataPageResponse = {
-    //   state: 'XX',
-    //   from: '2021-02-24',
-    //   to: '2021-03-26',
-    //   one: 3,
-    //   two: 4,
-    //   three: 9,
-    //   four: 13,
-    //   five: 7,
-    //   six: 10,
-    //   seven: 19,
-    //   eight: 5,
-    //   nine: 7,
-    //   ten: 8
-    // }
-
-    // if (this.context.dataPageResponse) {
-    //   dataPageResponse = this.context.dataPageResponse
-    // } else {
-    //   dataPageResponse = {
-    //     state: 'XX',
-    //     from: '2021-00-00',
-    //     to: '2021-99-99',
-    //     one: 5,
-    //     two: 10,
-    //     three: 15,
-    //     four: 20,
-    //     five: 25,
-    //     six: 30,
-    //     seven: 35,
-    //     eight: 40,
-    //     nine: 45,
-    //     ten: 50
-    //   }
-    // }
-
     let data = [
       {x: 1, y: dataPageResponse.one, label: dataPageResponse.one},
       {x: 2, y: dataPageResponse.two, label: dataPageResponse.two},
@@ -234,8 +190,6 @@ export default class Data extends Component {
       {x: 9, y: dataPageResponse.nine, label: dataPageResponse.nine},
       {x: 10, y: dataPageResponse.ten, label: dataPageResponse.ten},
     ]
-
-    // console.log('Data.js -> renderResults()', this.context.dataPageResponse, dataPageResponse, data)
 
     // let html = []
     // for (let key of Object.keys(res)) {
@@ -478,8 +432,9 @@ export default class Data extends Component {
         </View>
 
         <View style={styles.dataBotV}>
-          {this.context.dataResultsView && this.renderResults()}
-          {/* {this.renderResults()} */}
+          { this.context.dataResultsView && this.renderResults() }
+          {/* { this.context.gov && this.renderResults() } */}
+          { /* { this.renderResults() } */ }
         </View>
 
       </ScrollView>

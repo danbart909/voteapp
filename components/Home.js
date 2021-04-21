@@ -22,13 +22,6 @@ export default class Home extends Component {
     return (
       <ScrollView style={styles.scrollHome}>
         <View style={styles.homeBody1}>
-        
-          {/* <TouchableOpacity
-            style={styles.homeClogButton} 
-            onPress={() => console.log(this.context, this.context.dataPage)}
-          >
-            <Text style={styles.homeWhiteText}>c.log(this.state)</Text>
-          </TouchableOpacity> */}
           
           <TouchableOpacity
             style={styles.homeRepsButton}
@@ -49,6 +42,27 @@ export default class Home extends Component {
             onPress={() => this.props.navigation.navigate('Data')}
           >
             <Text style={styles.homeWhiteText}>Data Page</Text>
+          </TouchableOpacity>
+        
+          {/* <TouchableOpacity
+            style={styles.homeClogButton} 
+            onPress={() => console.log(this.context, this.context.dataPage)}
+          >
+            <Text style={styles.homeWhiteText}>c.log(this.state)</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity
+            style={styles.homeClogButton} 
+            onPress={() => this.context.cLogAsync()}
+          >
+            <Text style={styles.homeWhiteText}>c.log(async)</Text>
+          </TouchableOpacity> */}
+
+          <TouchableOpacity
+            style={styles.homeClogButton} 
+            onPress={() => this.context.clearData()}
+          >
+            <Text style={styles.homeWhiteText}>clear memory</Text>
           </TouchableOpacity>
 
         </View>

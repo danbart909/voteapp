@@ -90,10 +90,30 @@ export default StyleSheet.create({
     backgroundColor: 'white',
     color: 'black',
     padding: 5,
+    marginBottom: 10,
+    width: 250
+  },
+  formBot: {
+    flexDirection: 'row'
+  },
+  addressInputState: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: 5,
+    marginBottom: 10,
+    marginRight: 10,
+    width: 120
+  },
+  addressInputZip: {
+    backgroundColor: 'white',
+    color: 'black',
+    padding: 5,
+    marginBottom: 10,
+    width: 120
   },
   rButtonV: {
     flexDirection: 'row',
-    padding: 10,
+    paddingBottom: 10,
   },
   rButton: {
     alignItems: 'center',
@@ -102,10 +122,44 @@ export default StyleSheet.create({
     backgroundColor: 'midnightblue',
     padding: 10,
   },
+  rButton2: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign: 'center',
+    backgroundColor: 'midnightblue',
+    padding: 8,
+    marginLeft: 10
+  },
   rButtonTx: {
     justifyContent: 'center',
     color: 'white',
     fontSize: 16,
+  },
+  rButton2Tx: {
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: 12,
+  },
+  rTopDrawer: {
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  rTopDrawerButton: {
+    // flex: 1,
+    borderRightWidth: 1,
+    borderLeftWidth: 1,
+    borderBottomWidth: 1,
+    borderColor: 'black',
+    width: 200,
+    height: 30,
+    justifyContent: 'center',
+    textAlign: 'center',
+    backgroundColor: 'midnightblue'
+  },
+  rTopDrawerButtonTx: {
+    color: 'white',
+    alignSelf: 'center'
   },
 
 
@@ -120,12 +174,17 @@ export default StyleSheet.create({
     backgroundColor: 'black',
     minHeight: '85%',
   },
+  rAddress: {
+    backgroundColor: '#251459',
+    padding: 10,
+    alignItems: 'center',
+    marginTop: 15
+  },
   rDistricts: {
     backgroundColor: '#251459',
     padding: 10,
     alignItems: 'center',
-    marginTop: 15,
-    marginBottom: 15
+    marginTop: 15
   },
   rDistrictsTx: {
     color: 'white',
@@ -805,8 +864,8 @@ export default StyleSheet.create({
     color: 'black',
     paddingTop: 12.5,
     paddingBottom: 12.5,
-    paddingLeft: 5,
-    paddingRight: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
     borderRadius: 5,
     marginTop: 7,
     marginRight: 2
@@ -817,8 +876,8 @@ export default StyleSheet.create({
     color: 'black',
     paddingTop: 12.5,
     paddingBottom: 12.5,
-    paddingLeft: 5,
-    paddingRight: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
     borderRadius: 5,
     marginTop: 7,
     marginLeft: 2

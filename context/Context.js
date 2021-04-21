@@ -2,6 +2,8 @@ import React from 'react';
 
 export default React.createContext({
   address: '',
+  addressDisplay: '',
+  showSearchForm: true,
   dataResultsView: false,
   gov: {},
   data: {},
@@ -13,7 +15,8 @@ export default React.createContext({
   setDataPageDates: () => {},
   setDataPageResponse: () => {},
   setNameFromRepCard: () => {},
-  setResultsView: () => {},
+  setSearchFormView: () => {},
+  setDataResultsView: () => {},
   setTimer: () => {},
   cLogAsync: () => {},
   getData: () => {},

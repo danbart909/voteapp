@@ -15,6 +15,8 @@ export default class GlobalState extends Component {
       // address: '1822 Tree Top Way, Marietta GA 30062',
       // address: '1820 Tree Top Way, Marietta GA 30062',
       address: '',
+      addressDisplay: '',
+      showSearchForm: true,
       dataResultsView: false,
       gov: {
         districts: [],
@@ -115,6 +117,10 @@ export default class GlobalState extends Component {
     // console.log('GlobalState - 117 - setDataPageResponse', x, this.state.dataPageResponse)
   }
 
+  setDataResultsView = () => {
+    this.setState({ dataResultsView: true })
+  }
+
   setNameFromRepCard = (name) => {
     let freshDate = new Date()
     let today = freshDate.toISOString().slice(0, 10)
@@ -134,8 +140,8 @@ export default class GlobalState extends Component {
     })
   }
 
-  setResultsView = () => {
-    this.setState({ dataResultsView: true })
+  setSearchFormView = () => {
+    this.setState({ showSearchForm: !this.state.showSearchForm })
   }
 
   setTimer = (name, rating, i) => {
@@ -226,6 +232,9 @@ export default class GlobalState extends Component {
       await AsyncStorage.clear()
       this.setState({
         address: '',
+        addressDisplay: '',
+        showSearchForm: true,
+        dataResultsView: false,
         gov: {
           districts: [],
           offices: {},
@@ -242,6 +251,36 @@ export default class GlobalState extends Component {
           4: { name: '', score: 0, timer: baseTimer },
           5: { name: '', score: 0, timer: baseTimer },
           6: { name: '', score: 0, timer: baseTimer }
+        },
+        dataPage: {
+          name: '',
+          state: '',
+          office: '',
+          officeLabel: '',
+          date1: '',
+          date2: '',
+          view1: 'name',
+          view2: 'range',
+          state2: '',
+          office2: '',
+          office2Label: ''
+        },
+        dataPageResponse: {
+          name: '',
+          office: '',
+          state: '',
+          from: '',
+          to: '',
+          one: 0,
+          two: 0,
+          three: 0,
+          four: 0,
+          five: 0,
+          six: 0,
+          seven: 0,
+          eight: 0,
+          nine: 0,
+          ten: 0
         }
       }),
       console.log('memory cleared')
@@ -251,8 +290,7 @@ export default class GlobalState extends Component {
   }
 
   handleAddressFormChange = (x) => {
-    this.setState({address: x})
-    // , () => { console.log(this.state.address) }
+    this.setState({ address: x }, () => { console.log('Global State 255 - handleAddressFormChange', this.state.address) })
   }
 
   makeGETrequest = () => {
@@ -349,6 +387,12 @@ export default class GlobalState extends Component {
       }, () => this.storeData())
     }
     // Note: Addresses registered to business won't return state-level officials.
+
+    this.setState({
+      addressDisplay: this.state.address,
+      showSearchForm: false
+    })
+
   }
   
   render() {
@@ -356,6 +400,8 @@ export default class GlobalState extends Component {
       <Context.Provider
         value={{
           address: this.state.address,
+          addressDisplay: this.state.addressDisplay,
+          showSearchForm: this.state.showSearchForm,
           dataResultsView: this.state.dataResultsView,
           gov: this.state.gov,
           data: this.state.data,
@@ -367,7 +413,8 @@ export default class GlobalState extends Component {
           setDataPageDates: this.setDataPageDates,
           setDataPageResponse: this.setDataPageResponse,
           setNameFromRepCard: this.setNameFromRepCard,
-          setResultsView: this.setResultsView,
+          setSearchFormView: this.setSearchFormView,
+          setDataResultsView: this.setDataResultsView,
           setTimer: this.setTimer,
           cLogAsync: this.cLogAsync,
           getData: this.getData,

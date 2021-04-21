@@ -32,11 +32,79 @@ export default class Reps extends Component {
         4: { name: '', score: 0 },
         5: { name: '', score: 0 },
         6: { name: '', score: 0 }
-      }
+      },
+      street: '',
+      city: '',
+      state: '',
+      zip: ''
     }
   }
 
   static contextType = Context
+
+  setHomeAddressToGA = () => {
+    let x = `1820 Tree Top Way Marietta GA 30062`
+    this.setState({
+      street: '1820 Tree Top Way',
+      city: 'Marietta',
+      state: 'GA',
+      zip: '30062'
+    }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setHomeAddressToCO = () => {
+    let x = `1510 5th St Limon CO 80828`
+    this.setState({
+      street: '1510 5th St',
+      city: 'Limon',
+      state: 'CO',
+      zip: '80828'
+    }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setHomeAddressToWA = () => {
+    let x = `170 Goodwin Rd Thorp WA 98946`
+    this.setState({
+      street: '170 Goodwin Rd',
+      city: 'Thorp',
+      state: 'WA',
+      zip: '98946'
+    }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setHomeAddressToIL = () => {
+    let x = `125 Churchill Ln Lincoln IL 62656`
+    this.setState({
+      street: '125 Churchill Ln',
+      city: 'Lincoln',
+      state: 'IL',
+      zip: '62656'
+    }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setStreet = (e) => {
+    let { city, state, zip } = this.state
+    let x = `${e} ${city} ${state} ${zip}`
+    this.setState({ street: e }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setCity = (e) => {
+    let { street, state, zip } = this.state
+    let x = `${street} ${e} ${state} ${zip}`
+    this.setState({ city: e }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setST = (e) => {
+    let { street, city, zip } = this.state
+    let x = `${street} ${city} ${e} ${zip}`
+    this.setState({ state: e }, () => this.context.handleAddressFormChange(x))
+  }
+
+  setZip = (e) => {
+    let { street, city, state } = this.state
+    let x = `${street} ${city} ${state} ${e}`
+    this.setState({ zip: e }, () => this.context.handleAddressFormChange(x))
+  }
 
   setVote = (rating) => {
     let i = this.state.modal2id
@@ -190,6 +258,104 @@ export default class Reps extends Component {
     }
     return arr
   }
+
+  visibleSearchForm = () => {
+    return (
+      <>
+        { this.context.addressDisplay != '' && <View style={styles.rTopDrawer}>
+          <TouchableOpacity
+            style={styles.rTopDrawerButton}
+            onPress={() => this.context.setSearchFormView()}
+          >
+            <Text style={styles.rTopDrawerButtonTx}>Hide Search</Text>
+          </TouchableOpacity>
+        </View> }
+        <View style={styles.rTop}>
+          <TextInput
+            style={styles.addressInput}
+            placeholder='Street'
+            onChangeText={this.setStreet}
+            defaultValue={this.state.street}
+          />
+          <TextInput
+            style={styles.addressInput}
+            placeholder='City'
+            onChangeText={this.setCity}
+            defaultValue={this.state.city}
+          />
+          <View style={styles.formBot}>
+            <TextInput
+              style={styles.addressInputState}
+              placeholder='State'
+              onChangeText={this.setST}
+              defaultValue={this.state.state}
+            />
+            <TextInput
+              style={styles.addressInputZip}
+              placeholder='Zip Code'
+              onChangeText={this.setZip}
+              defaultValue={this.state.zip}
+            />
+          </View>
+          <View style={styles.rButtonV}>
+            <TouchableOpacity
+              onPress={() => this.context.makeGETrequest()}
+              style={styles.rButton}
+            >
+              <Text style={styles.rButtonTx}>
+                Search
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setHomeAddressToGA()}
+              style={styles.rButton2}
+            >
+              <Text style={styles.rButton2Tx}>
+                set GA
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setHomeAddressToCO()}
+              style={styles.rButton2}
+            >
+              <Text style={styles.rButton2Tx}>
+                set CO
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setHomeAddressToWA()}
+              style={styles.rButton2}
+            >
+              <Text style={styles.rButton2Tx}>
+                set WA
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.setHomeAddressToIL()}
+              style={styles.rButton2}
+            >
+              <Text style={styles.rButton2Tx}>
+                set IL
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </>
+    )
+  }
+
+  hiddenSearchForm = () => {
+    return (
+      <View style={styles.rTopDrawer}>
+        <TouchableOpacity
+          style={styles.rTopDrawerButton}
+          onPress={() => this.context.setSearchFormView()}
+        >
+          <Text style={styles.rTopDrawerButtonTx}>Show Search</Text>
+        </TouchableOpacity>
+      </View>
+    )
+  }
   
   render() {
 
@@ -207,33 +373,22 @@ export default class Reps extends Component {
           offModal2={() => this.offModal2()}
           setVote={(rating) => this.setVote(rating)}
         />
-        <View style={styles.rTop}>
-          <TextInput
-            style={styles.addressInput}
-            placeholder='Type Address Here'
-            onChangeText={this.context.handleAddressFormChange}
-            defaultValue={this.context.address}
-          />
-          <View style={styles.rButtonV}>
-            <TouchableOpacity
-              onPress={() => this.context.makeGETrequest()}
-              style={styles.rButton}
-            >
-              <Text style={styles.rButtonTx}>
-                Search
-              </Text>
-            </TouchableOpacity>
+        { this.context.showSearchForm && this.visibleSearchForm() }
+        { !this.context.showSearchForm && this.hiddenSearchForm() }
+        { this.context.gov && <View style={styles.rBot}>
+          { this.context.throwError ? <Text style={{color: 'red'}}>unexpected response length recieved - either less than 6 or more than 7 congressmen returned</Text> : <></> }
+          <View style={styles.rAddress}>
+            <Text style={styles.rDistrictsTx}>
+              {this.context.addressDisplay}
+            </Text>
           </View>
-        </View>
-        <View style={styles.rBot}>
-          { this.context.throwError ? <Text style={{color: 'red'}}>unexpected response length recieved</Text> : <></>}
-          { this.context.gov && <><View style={styles.rDistricts}>
+          <View style={styles.rDistricts}>
             {this.context.gov.districts.map(x => {
               return <Text key={i++} style={styles.rDistrictsTx}>{x}</Text>
             })}
           </View>
-          {this.displayData()}</> }
-        </View>
+          { this.displayData() }
+        </View> }
       </ScrollView>
     )
   }
