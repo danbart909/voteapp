@@ -1,0 +1,26 @@
+import React from 'react';
+
+export default React.createContext({
+  address: '',
+  addressDisplay: '',
+  showSearchForm: true,
+  dataResultsView: false,
+  gov: {},
+  data: {},
+  throwError: false,
+  vote: {},
+  dataPage: {},
+  dataPageResponse: {},
+  setDataPage: () => {},
+  setDataPageDates: () => {},
+  setDataPageResponse: () => {},
+  setNameFromRepCard: () => {},
+  setSearchFormView: () => {},
+  setDataResultsView: () => {},
+  setTimer: () => {},
+  cLogAsync: () => {},
+  getData: () => {},
+  clearData: () => {},
+  handleAddressFormChange : () => {},
+  makeGETrequest : () => {},
+})

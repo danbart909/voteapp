@@ -1,0 +1,12 @@
+{
+  "name": "pollapp",
+  "displayName": "pollapp",
+  "expo": {
+    "name": "pollapp",
+    "slug": "pollapp",
+    "version": "0.3",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
