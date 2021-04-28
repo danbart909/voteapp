@@ -23,10 +23,6 @@ export default class Data extends Component {
     let urlName = name.replace(/[ ,.]/g, '')
     let newDate = new Date()
     let today = newDate.toISOString().slice(0, 10)
-    // let mainURL = '192.168.137.1:8000'
-    // let mainURL = '10.0.0.144:8000'
-    // let mainURL = '10.28.18.7:8000'
-    // let mainURL = 'localhost:8000'
     let mainURL = 'https://stormy-forest-24258.herokuapp.com'
 
     if (view1 === 'stateOffice' && (office2 === '' || state2 === '')) {

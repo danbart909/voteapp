@@ -22,6 +22,13 @@ export default class Home extends Component {
     return (
       <ScrollView style={styles.scrollHome}>
         <View style={styles.homeBody1}>
+
+          <TouchableOpacity
+            style={styles.homeAsync1Button}
+            onPress={() => this.props.navigation.navigate('Location')}
+          >
+            <Text style={styles.homeWhiteText}>Location</Text>
+          </TouchableOpacity>
           
           <TouchableOpacity
             style={styles.homeRepsButton}

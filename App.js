@@ -3,6 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import GlobalState from './context/GlobalState.js'
 import Home from './components/Home'
+import Location from './components/Location'
 import Reps from './components/Reps'
 import Elections from './components/Elections'
 import Data from './components/Data'
@@ -26,6 +27,11 @@ export default class App extends Component {
                 name="Home"
                 component={Home}
                 options={{ title: 'The Voting Booth' }}
+              />
+              <Stack.Screen
+                name="Location"
+                component={Location}
+                options={{ title: 'Your Location' }}
               />
               <Stack.Screen
                 name="Reps"

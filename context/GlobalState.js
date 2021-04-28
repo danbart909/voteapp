@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Context from './Context.js'
 import AsyncStorage from '@react-native-async-storage/async-storage'
 import axios from 'react-native-axios'
+import { CIVIC_API_KEY } from '@env'
 
 let baseTimer = 3
 
@@ -296,7 +297,7 @@ export default class GlobalState extends Component {
   makeGETrequest = () => {
     let base = 'https://civicinfo.googleapis.com/civicinfo/v2/representatives?address='
     let address = this.state.address.replace(/\s/g, '%20')
-    let suffix = '&includeOffices=true&roles=headOfState&roles=headOfGovernment&roles=legislatorUpperBody&roles=legislatorLowerBody&key=AIzaSyA1czMYsSTRYIHYJxwN3QoC4BcmoqbOUO0&compressed'
+    let suffix = `&includeOffices=true&roles=headOfState&roles=headOfGovernment&roles=legislatorUpperBody&roles=legislatorLowerBody&key=${CIVIC_API_KEY}&compressed`
     let url = base + address + suffix
 
     axios.get(url)

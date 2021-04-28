@@ -74,6 +74,30 @@ export default StyleSheet.create({
 
 
 
+  /*****************************************/
+  /*************** Location  ***************/
+  /*****************************************/
+
+
+
+  loc_dropdownlist: {
+    width: '100%',
+    height: 320,
+    backgroundColor: '#fff',
+    position: 'absolute',
+    top: 82,
+    left: 20,
+    zIndex: 10
+  },
+  dummmy: {
+    width: 600,
+    height: 200,
+    backgroundColor: 'hotpink',
+    marginTop: 20,
+  },
+
+
+
   /*******************************************/
   /*************** Reps Body 1 ***************/
   /*******************************************/
